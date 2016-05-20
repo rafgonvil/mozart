@@ -1,0 +1,89 @@
+html {
+	background:linear-gradient(#e5e5ff, #ffffff) repeat scroll 0% 0% transparent;
+	min-height: 100%;
+}
+
+header{
+	width:98%;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+body{
+	width:90%;
+	margin-left:auto;
+	margin-right: auto;
+	
+}
+
+.barraNavegacion{
+	background: linear-gradient(#B2D8FF, #FFFFFF) repeat scroll 0% 0% transparent;
+	clear:both;
+	display:block;
+	float: left;
+	margin: 0px auto 20px;
+	width: 100%;
+	text-align:center;
+	border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 9px;
+	
+}
+
+.cabecera1 {
+	display: block;
+}
+
+.pestanaNav{
+	float: left;
+	position: relative;
+	border-right: 1px solid #D4D4D4;
+	color: #FFFFFF;
+	line-height: 2em;
+	padding: 0px 1.2125em;
+}
+
+.pestanaNav:hover{
+	background: linear-gradient(#ffeded, #D4D4D4) repeat scroll 0% 0% transparent
+}
+
+.barraNavegacion ul{
+	list-style-type:none;
+	margin: 0px 0px 0px;
+}	
+
+.navegacionPie{
+	background: linear-gradient(#FFFFFF, #B2D8FF) repeat scroll 0% 0% transparent;
+	clear:both;
+	display:block;
+	float: left;
+	margin: 10px auto 10px;
+	width: 90%;
+	text-align:center;
+	border-style: solid;
+    border-width: 0px;
+    border-radius: 0px;
+    bottom: 0;
+    position: fixed;
+}
+
+.navegacionPie ul{
+	margin: 0px 0px 0px;
+}
+
+.pestanaNavPie{
+	list-style: outside none none;
+	float: left;
+	position: relative;
+	border-right: 1px solid #D4D4D4;
+	color: #FFFFFF;
+	line-height: 1.5em;
+	padding: 0px 1em;
+}
+
+.pestanaNavPie:hover{
+	background: linear-gradient(#D4D4D4, #ffeded) repeat scroll 0% 0% transparent
+}
+
+

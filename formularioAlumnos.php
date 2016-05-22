@@ -1,6 +1,11 @@
 <?php
     session_start();
-    include_once("gestionbd.php");
+    /*
+     * De momento no se realiza una conexión a la BD
+     * pero puede ser necesaria en un futuro por lo
+     * que se han comentado algunas líneas de código
+     */
+    //include_once("gestionbd.php");
     if (!isset($_SESSION['formulario'])) {
         $formulario['nombre'] = "";
         $formulario['apellidos'] = "";
@@ -37,6 +42,8 @@
         <!-- Hay que añadir estilo--->
         
         <!-- Se muestran los errores en caso de que se produzcan -->
+        
+        <!-- CUIDADO! SOLO SE MUESTRAN LOS ERRORES DEL TRATAMIENTO CON JS -->
         
         <div id="errores"></div>
         

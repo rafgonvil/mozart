@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -8,6 +12,9 @@
 		<h1>Se ha producido un error</h1>
 		<?php
 			echo $_SESSION['excepcion'];
-		 ?>
+            unset($_SESSION['excepcion']);
+		?>
+		<p>Contacte con el administrador de la base de datos.</p>
+		<p><a href="formularioAlumnos.php">Aquí</a> para regresar al registro.</p>
 	</body>
 </html>

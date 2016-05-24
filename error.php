@@ -1,5 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
+<?php
+    session_start();
+?>
+
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<meta content="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,6 +12,9 @@
 		<h1>Se ha producido un error</h1>
 		<?php
 			echo $_SESSION['excepcion'];
-		 ?>
+            unset($_SESSION['excepcion']);
+		?>
+		<p>Contacte con el administrador de la base de datos.</p>
+		<p><a href="formularioAlumnos.php">Aquí</a> para regresar al registro.</p>
 	</body>
 </html>

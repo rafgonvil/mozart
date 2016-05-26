@@ -2,7 +2,7 @@
     session_start();
     /*
      * De momento no se realiza una conexión a la BD
-     * pero puede ser necesaria en un futuro por lo
+     * pero "puede ser necesaria" en un futuro por lo
      * que se han comentado algunas líneas de código
      */
     //include_once("gestionbd.php");
@@ -45,10 +45,13 @@
         
         <!-- CUIDADO! SOLO SE MUESTRAN LOS ERRORES DEL TRATAMIENTO CON JS -->
         
+        <!-- Este div es manipulado por el js -->
+        
         <div id="errores"></div>
         
         <form action="tratamientoFormAlumnos.php" method="post" onsubmit="return validaAlm()">
             
+            <!-- Problemas con los límites de los campos NOMBRE y APELLIDOS, consultar -->
             <div id="div_nombre">
                 <label for="nombre" id="label_nombre">Nombre:</label>
                 <input id="nombre" name="nombre" type="text" value="<?php echo $formulario['nombre']; ?>"/></input>
@@ -68,7 +71,7 @@
             
             <div id="div_email">
                 <label for="email" id="label_email">Correo electrónico:</label>
-                <input id="email" name="email" type="email" value="<?php echo $formulario['email']; ?>"/>
+                <input id="email" name="email" type="email" maxlength="50" value="<?php echo $formulario['email']; ?>"/>
             </div>
             
             <div id="div_fecha">
@@ -101,7 +104,7 @@
             
             <div id="div_especialidad">
                 <label for="especialidad" id="label_especialidad">Especialidad</label>
-                <input id="especialidad" name="especialidad" type="text" value="<?php echo $formulario['especialidad']; ?>" />
+                <input id="especialidad" name="especialidad" type="text" maxlength="50" value="<?php echo $formulario['especialidad']; ?>" />
             </div>
             <div id="div_submit">
                 <input type="submit" value="Publicar"/>

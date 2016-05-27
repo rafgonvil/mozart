@@ -8,21 +8,36 @@
 }
 
 #div_dni, #div_nombre, #div_apellidos, #div_email, #div_fecha, #div_curso, #div_especialidad, #div_telefono {
-	margin-left: 15%;
+	margin-left: 5%;
 	margin-bottom: 1.2em;
 }
 
 #div_submit {
-	position: absolute;
+	position: relative;
+	margin-bottom: 5px;
 	top: 74%;
 	left: 50%;
-	transform: translate(-50%, 50%);
 }
 
 #div_reset {
-	position: absolute;
+	position: relative;
 	top: 78%;
 	left: 50%;
-	transform: translate(-50%, 50%);
+}
+
+input#letra {
+	width: 25px;
+}
+
+input#telefono {
+	width: 75px;
+}
+
+input#dni {
+	width: 70px;
+}
+
+label#label_letra {
+		margin-left: 23px;
 }
 

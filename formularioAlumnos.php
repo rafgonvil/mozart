@@ -40,19 +40,13 @@ if (isset($_SESSION['errores'])) {
     
     <body>
     	<?php
-		include_once ("/CabeceraGenerica.php");
+		include_once ("CabeceraGenerica.php");
 	?>    
-
-        <!-- Hay que añadir estilo--->
-        
-        <!-- Se muestran los errores en caso de que se produzcan -->
-        
-        <!-- CUIDADO! SOLO SE MUESTRAN LOS ERRORES DEL TRATAMIENTO CON JS -->
         
         <div id="errores"></div>
         
         <form action="tratamientoFormAlumnos.php" method="post" onsubmit="return validaAlm()">
-            
+        
             <div id="div_nombre">
                 <label for="nombre" id="label_nombre">Nombre:</label>
                 <input id="nombre" name="nombre" type="text" value="<?php echo $formulario['nombre']; ?>"/></input>
@@ -66,7 +60,7 @@ if (isset($_SESSION['errores'])) {
             <div id="div_dni">
                 <label for="dni" id="label_dni">Número DNI:</label>
                 <input id="dni" name="dni" type="text" maxlength="8" value="<?php echo $formulario['dni']; ?>"/></input>
-                <label for="letra" id="label_letra">Letra DNI:</label>
+                <label for="letra" id="label_letra">Letra:</label>
                 <input id="letra" name="letra" type="text" maxlength="1" value="<?php echo $formulario['letra']; ?>"/></input>
             </div>
             
@@ -74,7 +68,7 @@ if (isset($_SESSION['errores'])) {
                 <label for="email" id="label_email">Correo electrónico:</label>
                 <input id="email" name="email" type="email" value="<?php echo $formulario['email']; ?>"/>
             </div>
-            
+
             <div id="div_fecha">
                 <label for="fnac" id="label_fnac">Fecha de nacimiento:</label>
                 <input id="fnac" type="date" name="fnac" step="1" min="1990-01-01" max="<?php echo date("Y-m-d") ?>">
@@ -102,14 +96,16 @@ if (isset($_SESSION['errores'])) {
                     <option>SOLO INSTRUMENTO</option>
                 </select>
             </div>
-            
+
             <div id="div_especialidad">
                 <label for="especialidad" id="label_especialidad">Especialidad</label>
                 <input id="especialidad" name="especialidad" type="text" value="<?php echo $formulario['especialidad']; ?>" />
             </div>
+            
             <div id="div_submit">
                 <input type="submit" value="Publicar"/>
             </div>
+            
             <div id="div_reset">
                 <input type="reset" value="Reset"/>
             </div>

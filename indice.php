@@ -23,14 +23,7 @@ unset($_SESSION[""]);
 				print("$error");
 				print("</div>");
 			}echo "</div>";	}
-	?>
-		<div id>
-			
-			
-			
-		</div>
-		
-		
+	?>	
 </div>
 <?php 	include_once("Pie.php"); ?>
 </body>

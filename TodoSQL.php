@@ -943,8 +943,5 @@ END ASSERT_EQUALS;
 			
 		</div>
 </div>
-
-		<?php 	include_once("Pie.php");
-		?>
 	</body>
 </html>

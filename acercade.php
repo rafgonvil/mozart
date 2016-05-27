@@ -20,6 +20,9 @@
 	?>
 	
 		<div id="presentacion">
+		<h1>
+			Mozart.com
+		</h1>
 		<h4>			
 			Web desarrolada por Jose Daniel Solano, Roberto García y Domingo Muñoz para IISSI de la Escuela Técnica Superior De Ingeniería Informática.
 		</h4>

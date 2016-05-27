@@ -7,5 +7,12 @@
 		</ul>
 	</div>
 	<br/>
-	<i>Proyecto Morzart SL por Jose Daniel Solano, Domingo Muñoz y Roberto García.</i>
+	<div>
+		<i>Proyecto Morzart SL por Jose Daniel Solano, Domingo Muñoz y Roberto García.</i>
+		<p>
+			<a href="http://jigsaw.w3.org/css-validator/check/referer"> <img style="border:0;width:88px;height:31px"
+			src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+			alt="¡CSS Válido!" /> </a>
+		</p>
+	</div>
 </div>

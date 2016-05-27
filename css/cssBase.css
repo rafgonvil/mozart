@@ -58,14 +58,13 @@ body{
 	clear:both;
 	display:block;
 	float: left;
-	margin: 10px auto 10px;
-	width: 90%;
+	margin: 50px auto 10px;
+	width: 100%;
 	text-align:center;
 	border-style: solid;
     border-width: 0px;
     border-radius: 0px;
-    bottom: 0;
-    position: fixed;
+
 }
 
 .navegacionPie ul{
@@ -78,12 +77,21 @@ body{
 	position: relative;
 	border-right: 1px solid #D4D4D4;
 	color: #FFFFFF;
-	line-height: 1.5em;
+	line-height: 2.5em;
 	padding: 0px 1em;
 }
 
 .pestanaNavPie:hover{
 	background: linear-gradient(#D4D4D4, #ffeded) repeat scroll 0% 0% transparent
 }
+
+.piedepagina{
+	display: block;
+	bottom: auto;
+}
+
+#pie{
+	text-align:center;
+}	
 
 

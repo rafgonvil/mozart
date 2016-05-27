@@ -1,32 +1,31 @@
 <?php
-    session_start();
-    /*
-     * De momento no se realiza una conexión a la BD
-     * pero puede ser necesaria en un futuro por lo
-     * que se han comentado algunas líneas de código
-     */
-    //include_once("gestionbd.php");
-    if (!isset($_SESSION['formulario'])) {
-        $formulario['nombre'] = "";
-        $formulario['apellidos'] = "";
-        $formulario['dni'] = "";
-        $formulario['email'] = "";
-        $formulario['fnac'] = date("Y-m-d");
-        $formulario['telefono'] = "";
-        $formulario['curso'] = "";
-        $formulario['especialidad'] = "";
-        $formulario['letra'] = "";
-        $_SESSION['formulario'] = $formulario;
-    } else {
-        $formulario = $_SESSION['formulario'];
-    }
-    
-    if (isset($_SESSION['errores'])) {
-        $errores = $_SESSION['errores'];
-    }
-    
-    //$conexion = crearConexionBD();
-    
+session_start();
+/*
+ * De momento no se realiza una conexión a la BD
+ * pero puede ser necesaria en un futuro por lo
+ * que se han comentado algunas líneas de código
+ */
+//include_once("gestionbd.php");
+if (!isset($_SESSION['formulario'])) {
+	$formulario['nombre'] = "";
+	$formulario['apellidos'] = "";
+	$formulario['dni'] = "";
+	$formulario['email'] = "";
+	$formulario['fnac'] = date("Y-m-d");
+	$formulario['telefono'] = "";
+	$formulario['curso'] = "";
+	$formulario['especialidad'] = "";
+	$formulario['letra'] = "";
+	$_SESSION['formulario'] = $formulario;
+} else {
+	$formulario = $_SESSION['formulario'];
+}
+
+if (isset($_SESSION['errores'])) {
+	$errores = $_SESSION['errores'];
+}
+
+//$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE HTML>
@@ -34,11 +33,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulario Alumno</title>
-        <!-- <link type="text/css" rel="stylesheet" href="estilo/formulario.css"> --->
+        <link type="text/css" rel="stylesheet" href="css/cssBase.css">
+        <link type="text/css" rel="stylesheet" href="css/formulario.css">
         <script src="scripts/validacionAlumno.js"></script>
     </head>
     
     <body>
+    	<?php
+		include_once ("/CabeceraGenerica.php");
+	?>    
+
         <!-- Hay que añadir estilo--->
         
         <!-- Se muestran los errores en caso de que se produzcan -->
@@ -110,9 +114,12 @@
                 <input type="reset" value="Reset"/>
             </div>
         </form>
+			<?php
+			include_once ("Pie.php");
+ ?>
     </body>
 </html>
 
 <?php
-    //scerrarConexionBD($conexion);
+//scerrarConexionBD($conexion);
 ?>

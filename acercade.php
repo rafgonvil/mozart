@@ -8,17 +8,7 @@
 	<body>
 	<?php include_once("CabeceraGenerica.php");?>
 <div id="contenidoPag">
-	<?php 
-		if(isset($_SESSION['erroresIndex'])){
-		 	$erroresIndex = $_SESSION['erroresIndex'];
-			echo "<div id='muestraErrores'>";
-			foreach($erroresIndex as $error){
-				print("<div class='error'>");
-				print("$error");
-				print("</div>");
-			}echo "</div>";	}
-	?>
-	
+
 		<div id="presentacion">
 		<h1>
 			Mozart.com

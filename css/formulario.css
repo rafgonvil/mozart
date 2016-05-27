@@ -1,20 +1,28 @@
-#formulario form{
-	background-color: #BFFCBF;
-    border-radius: 9px;
-    margin: 0px auto 2px;
-	padding: 15px;
-}
-
-#label_dni, #label_nombre, #label_apellidos, #label_email, #label_fnac, #label_telefono {
+#label_dni, #label_nombre, #label_apellidos, #label_email, #label_fnac, #label_telefono, #label_curso, #label_especialidad {
 	display: block;
 	float: left;
-	width: 120px;
-	text-align: right;
+	width: 15%;
+	text-align: left;
 	margin-right: 1%;
-	margin-bottom: 0.2em;
+	margin-bottom: 0.1em;
 }
 
-#div_dni, #div_nombre, #div_apellidos {
-	margin-bottom: 0.5em;
+#div_dni, #div_nombre, #div_apellidos, #div_email, #div_fecha, #div_curso, #div_especialidad, #div_telefono {
+	margin-left: 15%;
+	margin-bottom: 1.2em;
+}
+
+#div_submit {
+	position: absolute;
+	top: 74%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
+#div_reset {
+	position: absolute;
+	top: 78%;
+	left: 50%;
+	transform: translate(-50%, 50%);
 }
 

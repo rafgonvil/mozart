@@ -9,11 +9,11 @@
 	<body>
 		<?php
 		include_once ("CabeceraGenerica.php");
-		?>
-<div id="contenidoPag">
-		<h1>Todo El Código SQL</h1>
-		<div id="codSql">
-<textarea name="code" class="sql:nogutter"rows="50" cols="100">
+	?>
+		<div id="contenidoPag">
+			<h1>Todo El Código SQL</h1>
+			<div id="codSql">
+				<textarea name="code" class="sql:nogutter"rows="50" cols="100">
 <!--
 	
 DROP TABLE TIENE;
@@ -939,9 +939,10 @@ END ASSERT_EQUALS;
 /
 	
 -->
-</textarea>
+</textarea>				
 			
+
+			</div>
 		</div>
-</div>
 	</body>
 </html>

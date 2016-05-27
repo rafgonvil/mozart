@@ -1,0 +1,29 @@
+
+Para el APROBADO:
+- Usar marcado HTML 5 estricto. ?
+
+- Acceder a una base de datos en 3FN para inserción, actualización, borrado y consulta. WIP
+- Formatear el resultado de al menos una consulta a la base de datos en una tabla HTML. WIP
+
+- Ausencia de errores de programación. HECHO.
+- Usar hojas de estilo CSS en archivos externos. HECHO
+- Maquetar con CSS todas las páginas. HECHO
+- Usar formularios. HECHO
+- Validar todos los formularios en cliente (con JS y/o con HTML5). HECHO
+- Validar todos los formularios en servidor.  HECHO
+- Realizar tratamiento de excepciones de acceso a bases de datos en servidor manteniendo siempre el control de la aplicación. HECHO
+
+Otras Consideraciones:
+- Uso avanzado de HTML 5 en cliente (aparte de formularios). ?
+- Uso de expresiones regulares tanto en cliente (Javascript) como en servidor (PHP). ?
+
+- Complejidad: pondera todo el proyecto entre 0.8 y 1.2. WIP
+
+- Una página HTML de descripción de la aplicación. HECHO
+- Uso avanzado de JavaScript en cliente (aparte de validación). HECHO
+- Facilidad de navegación por la aplicación web. HECHO
+- Usabilidad de la aplicación web. HECHO
+- Modularidad de código PHP en servidor (uso de include y similares, reutilización de código, uso de buenas prácticas). HECHO
+- Uso de la sesión en PHP ($_SESSION). HECHO
+- Legibilidad del código HTML, Javascript y PHP. HECHO
+- Estar validada por los validadores del W3C (XHTML/HTML, CSS, WAI, etc.). HECHO?

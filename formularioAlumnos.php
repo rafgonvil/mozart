@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 /*
  * De momento no se realiza una conexión a la BD
@@ -26,6 +27,36 @@ if (isset($_SESSION['errores'])) {
 }
 
 //$conexion = crearConexionBD();
+=======
+    session_start();
+    /*
+     * De momento no se realiza una conexión a la BD
+     * pero "puede ser necesaria" en un futuro por lo
+     * que se han comentado algunas líneas de código
+     */
+    //include_once("gestionbd.php");
+    if (!isset($_SESSION['formulario'])) {
+        $formulario['nombre'] = "";
+        $formulario['apellidos'] = "";
+        $formulario['dni'] = "";
+        $formulario['email'] = "";
+        $formulario['fnac'] = date("Y-m-d");
+        $formulario['telefono'] = "";
+        $formulario['curso'] = "";
+        $formulario['especialidad'] = "";
+        $formulario['letra'] = "";
+        $_SESSION['formulario'] = $formulario;
+    } else {
+        $formulario = $_SESSION['formulario'];
+    }
+    
+    if (isset($_SESSION['errores'])) {
+        $errores = $_SESSION['errores'];
+    }
+    
+    //$conexion = crearConexionBD();
+    
+>>>>>>> origin/roberto
 ?>
 
 <!DOCTYPE HTML>
@@ -43,10 +74,17 @@ if (isset($_SESSION['errores'])) {
 		include_once ("CabeceraGenerica.php");
 	?>    
         
+        <!-- Este div es manipulado por el js -->
+        
         <div id="errores"></div>
         
         <form action="tratamientoFormAlumnos.php" method="post" onsubmit="return validaAlm()">
+<<<<<<< HEAD
         
+=======
+            
+            <!-- Problemas con los límites de los campos NOMBRE y APELLIDOS, consultar -->
+>>>>>>> origin/roberto
             <div id="div_nombre">
                 <label for="nombre" id="label_nombre">Nombre:</label>
                 <input id="nombre" name="nombre" type="text" value="<?php echo $formulario['nombre']; ?>"/></input>
@@ -66,7 +104,7 @@ if (isset($_SESSION['errores'])) {
             
             <div id="div_email">
                 <label for="email" id="label_email">Correo electrónico:</label>
-                <input id="email" name="email" type="email" value="<?php echo $formulario['email']; ?>"/>
+                <input id="email" name="email" type="email" maxlength="50" value="<?php echo $formulario['email']; ?>"/>
             </div>
 
             <div id="div_fecha">
@@ -99,7 +137,7 @@ if (isset($_SESSION['errores'])) {
 
             <div id="div_especialidad">
                 <label for="especialidad" id="label_especialidad">Especialidad</label>
-                <input id="especialidad" name="especialidad" type="text" value="<?php echo $formulario['especialidad']; ?>" />
+                <input id="especialidad" name="especialidad" type="text" maxlength="50" value="<?php echo $formulario['especialidad']; ?>" />
             </div>
             
             <div id="div_submit">

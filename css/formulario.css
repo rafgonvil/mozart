@@ -1,4 +1,4 @@
-#label_dni, #label_nombre, #label_apellidos, #label_email, #label_fnac, #label_telefono, #label_curso, #label_especialidad {
+#label_dni, #label_dniTutor, #label_nombre, #label_nombreTutor, #label_apellidosTutor, #label_emailTutor, #label_fnacTutor, #label_telefonoTutor, #label_cursoTutor, #label_especialidadTutor, #label_dniAlumno, #label_alumno, #label_nombre, #label_apellidos, #label_email, #label_fnac, #label_telefono, #label_curso, #label_especialidad {
 	display: block;
 	float: left;
 	width: 15%;
@@ -7,7 +7,7 @@
 	margin-bottom: 0.1em;
 }
 
-#div_dni, #div_nombre, #div_apellidos, #div_email, #div_fecha, #div_curso, #div_especialidad, #div_telefono {
+#div_dni, #div_dni_alumno, #div_nombre, #div_apellidos, #div_email, #div_fecha, #div_curso, #div_especialidad, #div_telefono, #div_alumno{
 	margin-left: 5%;
 	margin-bottom: 1.2em;
 }
@@ -29,6 +29,19 @@ input#letra {
 	width: 25px;
 }
 
+input#letraAlumno {
+	width: 25px;
+}
+
+
+input#letraTutor {
+	width: 25px;
+}
+
+input#letraAlumnoTutor {
+	width: 25px;
+}
+
 input#telefono {
 	width: 75px;
 }
@@ -37,7 +50,16 @@ input#dni {
 	width: 70px;
 }
 
-label#label_letra {
+input#dniAlumno{
+	width :70px;	
+}
+
+label#label_letraAlumno{
 		margin-left: 23px;
 }
+
+label#label_letraTutor {
+		margin-left: 23px;
+}
+
 

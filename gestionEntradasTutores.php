@@ -53,9 +53,34 @@ function consultarTotalTutores($conexion) {
 	}
 }
 
+function consultarPaginaTutores($conexion, $pagina_seleccionada, $intervalo, $total)
+{
+    try {
+        $first = ($pagina_seleccionada - 1) * $intervalo + 1;
+        $last = $pagina_seleccionada * $intervalo;
+        if ($last > $total) {
+            $last = $total;
+        }
+        
+        $paged_query = "SELECT * FROM(" . "SELECT ROWNUM RNUM, AUX.* FROM(" .
+                        "SELECT * FROM PERSONA, SE_RESPONSABILIZA_DE " .
+                        "WHERE (PERSONA.OID_P = SE_RESPONSABILIZA_DE.TUTOR) " .
+                        "ORDER BY PERSONA.NOMBRE) AUX " .
+                        "WHERE ROWNUM <= :last) WHERE RNUM >=:first";
+        $stmt = $conexion->prepare($paged_query);
+        $stmt->bindParam(':first',$first);
+        $stmt -> bindParam(':last', $last);
+        $stmt -> execute();
+        return $stmt;
+    } catch (PDOException $e) {
+        $_SESSION['excepcion'] = $e->getMessage();
+        Header("Location:error.php");
+    }
+}
+
 function consultarAlumnoTutor($conexion, $oid) {
 	try {
-		$consulta = "SELECT ALUMNO.NOMBRE FROM SE_RESPONSABILIZA_DE NATURAL JOIN TUTOR " . "WHERE SE_RESPONSABILIZA_DE.TUTOR = :oid";
+		$consulta = "SELECT NOMBRE FROM SE_RESPONSABILIZA_DE, PERSONA WHERE SE_RESPONSABILIZA_DE.ALUMNO = :oid";
 		$stmt = $conexion -> prepare($consulta);
 		$stmt -> bindParam(':oid', $oid);
 		$stmt -> execute();

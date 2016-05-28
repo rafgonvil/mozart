@@ -2,14 +2,14 @@
 session_start();
 include_once ("gestionBD.php");
 include_once ("gestionEntradasAlumnos.php");
-if (isset($_SESSION['formulario'])) {
+if (isset($_SESSION['formularioAlumno'])) {
 	/*
 	 * Se recogen los datos del formulario y se almacenan
 	 * en otra variable
 	 */
-	$formulario = $_SESSION['formulario'];
-	unset($_SESSION['formulario']);
-	unset($_SESSION['errores']);
+	$formulario = $_SESSION['formularioAlumno'];
+	unset($_SESSION['formularioAlumno']);
+	unset($_SESSION['erroresAlumno']);
 } else {
 	Header("Location:formularioAlumnos.php");
 }
@@ -34,11 +34,11 @@ $conexion = crearConexionBD();
 		 * A partir de los datos del formulario se introduce un alumno
 		 * en la tabla ALUMNO
 		 */
-		insertarAlumno($formulario['nombre'], $formulario['apellidos'], $formulario['dni'], $formulario['letra'], $formulario['email'], $formulario['fnac'], $formulario['telefono'], $conexion);
+		insertarAlumno($formulario['nombreAlumno'], $formulario['apellidosAlumno'], $formulario['dniAlumno'], $formulario['letraAlumno'], $formulario['emailAlumno'], $formulario['fnacAlumno'], $formulario['telefonoAlumno'], $conexion);
 		/*
 		 * Una vez creado el alumno este es matriculado en el curso deseado
 		 */
-		insertarMatricula($formulario['curso'], $formulario['especialidad'], $formulario['dni'], $formulario['letra'], $conexion);
+		insertarMatricula($formulario['cursoAlumno'], $formulario['especialidadAlumno'], $formulario['dniAlumno'], $formulario['letraAlumno'], $conexion);
 		?>
 		<h1>Entrada registrada con éxito</h1>
 		<a href="formularioAlumnos.php">Aquí</a> para volver al registro.

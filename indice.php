@@ -6,11 +6,13 @@
 		<link type="text/css" rel="stylesheet" href="css/cssBase.css">
 	</head>
 	<body>
+		
 		<?php
+		unset($_SESSION);
 		include_once ("CabeceraGenerica.php");
 		?>
 		<?php
-			include_once ("Pie.php");
+		include_once ("Pie.php");
 		?>
 	</body>
 </html>

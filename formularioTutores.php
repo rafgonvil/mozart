@@ -6,23 +6,23 @@ session_start();
  * que se han comentado algunas líneas de código
  */
 //include_once("gestionbd.php");
-if (!isset($_SESSION['formulario'])) {
-	$formulario['nombre'] = "";
-	$formulario['apellidos'] = "";
-	$formulario['dni'] = "";
-	$formulario['email'] = "";
-	$formulario['fnac'] = date("Y-m-d");
-	$formulario['telefono'] = "";
-	$formulario['curso'] = "";
-	$formulario['letra'] = "";
-	$formulario['alumno'];
-	$_SESSION['formulario'] = $formulario;
+if (!isset($_SESSION['formularioTutor'])) {
+	$formulario['nombreTutor'] = "";
+	$formulario['apellidosTutor'] = "";
+	$formulario['dniTutor'] = "";
+	$formulario['letraTutor'] = "";
+	$formulario['emailTutor'] = "";
+	$formulario['fnacTutor'] = date("Y-m-d");
+	$formulario['telefonoTutor'] = "";
+	$formulario['dniAlumnoTutor'] = "";
+	$formulario['letraAlumnoTutor'] = "";
+	$_SESSION['formularioTutor'] = $formulario;
 } else {
-	$formulario = $_SESSION['formulario'];
+	$formulario = $_SESSION['formularioTutor'];
 }
 
-if (isset($_SESSION['errores'])) {
-	$errores = $_SESSION['errores'];
+if (isset($_SESSION['erroresTutor'])) {
+	$errores = $_SESSION['erroresTutor'];
 }
 
 //$conexion = crearConexionBD();
@@ -32,60 +32,63 @@ if (isset($_SESSION['errores'])) {
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Formulario Alumno</title>
+		<title>Formulario Tutor</title>
 		<link type="text/css" rel="stylesheet" href="css/cssBase.css">
 		<link type="text/css" rel="stylesheet" href="css/formulario.css">
-		<script src="scripts/validacionAlumno.js"></script>
+		<script src="scripts/validacionTutor.js"></script>
 	</head>
 
 	<body>
 		<?php
-		include_once ("/CabeceraGenerica.php");
+		include_once ("CabeceraGenerica.php");
 		?>
 
-		<div id="errores"></div>
+		<div id="erroresTutor"></div>
 
-		<form action="tratamientoFormTutores.php" method="post" onsubmit="return validaAlm()">
+		<form action="tratamientoFormTutores.php" method="post" onsubmit="return validaTut()">
 
 			<div id="div_nombre">
-				<label for="nombre" id="label_nombre">Nombre:</label>
-				<input id="nombre" name="nombre" type="text" value="<?php echo $formulario['nombre']; ?>"/>
+				<label for="nombreTutor" id="label_nombreTutor">Nombre:</label>
+				<input id="nombreTutor" name="nombreTutor" type="text" value="<?php echo $formulario['nombreTutor']; ?>"/>
 				</input>
 			</div>
 
 			<div id="div_apellidos">
-				<label for="apellidos" id="label_apellidos">Apellidos:</label>
-				<input id="apellidos" name="apellidos" type="text" value="<?php echo $formulario['apellidos']; ?>"/>
+				<label for="apellidosTutor" id="label_apellidosTutor">Apellidos:</label>
+				<input id="apellidosTutor" name="apellidosTutor" type="text" value="<?php echo $formulario['apellidosTutor']; ?>"/>
 				</input>
 			</div>
 
 			<div id="div_dni">
-				<label for="dni" id="label_dni">Número DNI:</label>
-				<input id="dni" name="dni" type="text" maxlength="8" value="<?php echo $formulario['dni']; ?>"/>
+				<label for="dniTutor" id="label_dniTutor">Número DNI:</label>
+				<input id="dniTutor" name="dniTutor" type="text" maxlength="8" value="<?php echo $formulario['dniTutor']; ?>"/>
 				</input>
-				<label for="letra" id="label_letra">Letra DNI:</label>
-				<input id="letra" name="letra" type="text" maxlength="1" value="<?php echo $formulario['letra']; ?>"/>
+				<label for="letraTutor" id="label_letraTutor">Letra:</label>
+				<input id="letraTutor" name="letraTutor" type="text" maxlength="1" value="<?php echo $formulario['letraTutor']; ?>"/>
 				</input>
 			</div>
 
 			<div id="div_email">
-				<label for="email" id="label_email">Correo electrónico:</label>
-				<input id="email" name="email" type="email" value="<?php echo $formulario['email']; ?>"/>
+				<label for="emailTutor" id="label_emailTutor">Correo electrónico:</label>
+				<input id="emailTutor" name="emailTutor" type="email" value="<?php echo $formulario['emailTutor']; ?>"/>
 			</div>
 
 			<div id="div_fecha">
-				<label for="fnac" id="label_fnac">Fecha de nacimiento:</label>
-				<input id="fnac" type="date" name="fnac" step="1" min="1990-01-01" max="<?php echo date("Y-m-d") ?>">
+				<label for="fnacTutor" id="label_fnacTutor">Fecha de nacimiento:</label>
+				<input id="fnacTutor" type="date" name="fnacTutor" step="1" min="1990-01-01" max="<?php echo date("Y-m-d") ?>"/>
 			</div>
 
 			<div id="div_telefono">
-				<label for="telefono" id="label_telefono">Teléfono</label>
-				<input id="telefono" name="telefono" type="text" maxlength="9" value="<?php echo $formulario['telefono']; ?>"/>
+				<label for="telefonoTutor" id="label_telefonoTutor">Teléfono</label>
+				<input id="telefonoTutor" name="telefonoTutor" type="text" maxlength="9" value="<?php echo $formulario['telefonoTutor']; ?>"/>
 			</div>
 
-			<div id="div_alumno">
-				<label for="alumno" id="label_alumno">Nombre del alumno:</label>
-				<input id="alumno" name="alumno" type="text" value="<?php echo $formulario['alumno']; ?>"/>
+			<div id="div_dni_alumno">
+				<label for="dniAlumnoTutor" id="label_dniAlumno">Número DNI Alumno:</label>
+				<input id="dniAlumnoTutor" name="dniAlumnoTutor" type="text" maxlength="8" value="<?php echo $formulario['dniAlumnoTutor']; ?>"/>
+				</input>
+				<label for="letraAlumnoTutor" id="label_letraAlumno">Letra Alumno:</label>
+				<input id="letraAlumnoTutor" name="letraAlumnoTutor" type="text" maxlength="1" value="<?php echo $formulario['letraAlumnoTutor']; ?>"/>
 				</input>
 			</div>
 

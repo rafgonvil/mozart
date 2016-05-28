@@ -2,7 +2,7 @@
 		<div class="cabecera1">
 		 <div id="textoCabecera">
 		 	<h1> Proyecto Mozart</h1>
-		 	<h2>La mejor web para gestionar tu escuela de música</h2>
+		 	<h2>La "mejor" web para gestionar tu escuela de música</h2>
 		 </div></div>
 		 <div class="barraNavegacion">
 		 	<ul>

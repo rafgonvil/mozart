@@ -34,11 +34,11 @@ $conexion = crearConexionBD();
 		 * A partir de los datos del formulario se introduce un alumno
 		 * en la tabla ALUMNO
 		 */
-		insertarAlumno($formulario['nombreAlumno'], $formulario['apellidosAlumno'], $formulario['dniAlumno'], $formulario['letraAlumno'], $formulario['emailAlumno'], $formulario['fnacAlumno'], $formulario['telefonoAlumno'], $conexion);
+		insertarAlumno($formulario['nombre'], $formulario['apellidos'], $formulario['dni'], $formulario['letra'], $formulario['email'], $formulario['fnac'], $formulario['telefono'], $conexion);
 		/*
 		 * Una vez creado el alumno este es matriculado en el curso deseado
 		 */
-		insertarMatricula($formulario['cursoAlumno'], $formulario['especialidadAlumno'], $formulario['dniAlumno'], $formulario['letraAlumno'], $conexion);
+		insertarMatricula($formulario['curso'], $formulario['especialidad'], $formulario['dni'], $formulario['letra'], $conexion);
 		?>
 		<h1>Entrada registrada con éxito</h1>
 		<a href="formularioAlumnos.php">Aquí</a> para volver al registro.

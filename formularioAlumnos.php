@@ -71,7 +71,7 @@ if (isset($_SESSION['erroresAlumno'])) {
 
             <div id="div_fecha">
                 <label for="fnacAlumno" id="label_fnac">Fecha de nacimiento:</label>
-                <input id="fnacAlumno" type="date" name="fnacAlumno" step="1" min="1990-01-01" max="<?php echo date("Y-m-d") ?>">
+                <input id="fnacAlumno" type="date" name="fnacAlumno" step="1" min="1990-01-01" max="<?php echo date("Y-m-d"); ?>">
             </div>
             
             <div id="div_telefono">
@@ -117,5 +117,5 @@ if (isset($_SESSION['erroresAlumno'])) {
 </html>
 
 <?php
-//scerrarConexionBD($conexion);
+//cerrarConexionBD($conexion);
 ?>

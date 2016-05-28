@@ -12,7 +12,7 @@ if (!isset($_SESSION['formularioAlumno'])) {
 	$formulario['telefono'] = $_REQUEST['telefonoAlumno'];
 	$formulario['curso'] = $_REQUEST['cursoAlumno'];
 	$formulario['especialidad'] = $_REQUEST['especialidadAlumno'];
-	$_SESSION['formulario'] = $formulario;
+	$_SESSION['formularioAlumno'] = $formulario;
 }
 
 $errores = validar($formulario);

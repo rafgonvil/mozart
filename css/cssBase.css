@@ -1,41 +1,39 @@
 html {
-	background:linear-gradient(#e5e5ff, #ffffff) repeat scroll 0% 0% transparent;
+	background: linear-gradient(#e5e5ff, #ffffff) repeat scroll 0% 0% transparent;
 	min-height: 100%;
 }
 
-header{
-	width:98%;
-	margin-left:auto;
+header {
+	width: 98%;
+	margin-left: auto;
 	margin-right: auto;
 }
 
-body{
-	width:90%;
-	margin-left:auto;
+body {
+	width: 90%;
+	margin-left: auto;
 	margin-right: auto;
-	
 }
 
-.barraNavegacion{
+.barraNavegacion {
 	background: linear-gradient(#B2D8FF, #FFFFFF) repeat scroll 0% 0% transparent;
-	clear:both;
-	display:block;
+	clear: both;
+	display: block;
 	float: left;
 	margin: 0px auto 40px;
 	width: 100%;
-	text-align:center;
+	text-align: center;
 	border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 9px;
-	
+	border-width: 1px;
+	border-color: black;
+	border-radius: 9px;
 }
 
 .cabecera1 {
 	display: block;
 }
 
-.pestanaNav{
+.pestanaNav {
 	float: left;
 	position: relative;
 	border-right: 1px solid #D4D4D4;
@@ -44,34 +42,33 @@ body{
 	padding: 0px 1.2125em;
 }
 
-.pestanaNav:hover{
+.pestanaNav:hover {
 	background: linear-gradient(#ffeded, #D4D4D4) repeat scroll 0% 0% transparent
 }
 
-.barraNavegacion ul{
-	list-style-type:none;
+.barraNavegacion ul {
+	list-style-type: none;
 	margin: 0px 0px 0px;
-}	
+}
 
-.navegacionPie{
+.navegacionPie {
 	background: linear-gradient(#FFFFFF, #B2D8FF) repeat scroll 0% 0% transparent;
-	clear:both;
-	display:block;
+	clear: both;
+	display: block;
 	float: left;
 	margin: 50px auto 10px;
 	width: 100%;
-	text-align:center;
+	text-align: center;
 	border-style: solid;
-    border-width: 0px;
-    border-radius: 0px;
-
+	border-width: 0px;
+	border-radius: 0px;
 }
 
-.navegacionPie ul{
+.navegacionPie ul {
 	margin: 0px 0px 0px;
 }
 
-.pestanaNavPie{
+.pestanaNavPie {
 	list-style: outside none none;
 	float: left;
 	position: relative;
@@ -81,17 +78,28 @@ body{
 	padding: 0px 1em;
 }
 
-.pestanaNavPie:hover{
+.pestanaNavPie:hover {
 	background: linear-gradient(#D4D4D4, #ffeded) repeat scroll 0% 0% transparent
 }
 
-.piedepagina{
+.piedepagina {
 	display: block;
 	bottom: auto;
 }
 
-#pie{
-	text-align:center;
-}	
+#pie {
+	text-align: center;
+}
 
+td, th {
+	padding-left: 45px;
+	text-align: center;
+}
 
+table {
+}
+
+th {
+	padding-top: 30px;
+	padding-bottom: 10px;
+}

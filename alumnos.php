@@ -30,10 +30,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Gestión de centro: Alumnos</title>
-        <!-- <link type="text/css" rel="stylesheet" href="estilo/alumnos.css" /> -->
+        <link type="text/css" rel="stylesheet" href="css/cssBase.css" />
     </head>
     
     <body>
+    	<?php include_once ("CabeceraGenerica.php");?>
         <div id="contenidos">
             <div id="alumnos">
                 <div id="paginacion">
@@ -107,7 +108,7 @@
         </div>
         
         <?php 
-            // include_once("pie.php");
+            include_once("pie.php");
             cerrarConexionBD($conexion);
         ?>
     </body>

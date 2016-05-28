@@ -20,18 +20,14 @@ function insertarTutor($nombre, $apellidos, $numDni, $letraDni, $email, $fnac, $
 		foreach ($consulta as $fila) {
 			$oid_alumno = $fila['OID_P'];
 		}
-		
-				$consulta1 = $conexion -> prepare('SELECT OID_P FROM PERSONA WHERE PERSONA.DNI = :dni');
+
+		$consulta1 = $conexion -> prepare('SELECT OID_P FROM PERSONA WHERE PERSONA.DNI = :dni');
 		$consulta1 -> bindParam(':dni', $dniTutor);
 		$consulta1 -> execute();
 		foreach ($consulta1 as $fila) {
 			$oid_tutor = $fila['OID_P'];
 		}
-		
-		
-		
-		
-		
+
 		$insertar = $conexion -> prepare('CALL INSERTAR_SE_RESPONSABILIZA_DE(:oid_t, :oid_a)');
 		$insertar -> bindParam(':oid_a', $oid_alumno);
 		$insertar -> bindParam(':oid_t', $oid_tutor);

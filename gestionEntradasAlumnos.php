@@ -117,5 +117,20 @@
             Header("Location:error.php");
         }
     }
+	
+	function consultarAsignaturasAlumno($conexion, $oid)
+    {
+        try {
+            $consulta = "SELECT * FROM REALIZA NATURAL JOIN ASIGNATURA ".
+                       "WHERE REALIZA.ALUMNO = :oid";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam(':oid', $oid);
+            $stmt->execute();
+            return $stmt;         
+        } catch (PDOException $e) {
+            $_SESSION['excepcion'] = $e->getMessage();
+            Header("Location:error.php");
+        }
+    }
     
 ?>

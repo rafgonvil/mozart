@@ -94,7 +94,7 @@
                             <td><?php echo $fila['TELEFONO'];  ?></td>
                             <td><?php echo $fila['CURSO'];  ?></td>
                             <td><?php echo $esp;  ?></td>
-                            <td><button id="info" name="info" type="submit">Información</button></td>
+                            <td><button id="info" name="info" type="submit">Administrar</button></td>
                         </tr>
                     </form>
 

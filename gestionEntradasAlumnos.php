@@ -47,6 +47,21 @@
        return $stmt;
     }
     
+    function modificarAlumno($email, $telefono, $oid, $conexion)
+    {
+        try {
+            $stmt = $conexion->prepare('CALL ACTUALIZAR_ALUMNO(:telefono, :email, :oid)');
+            $stmt->bindParam(':telefono', $telefono);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':oid', $oid);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            $_SESSION['excepcion'] = $e->getMessage();
+            /* Mejorar error.php para poder ir a alumnos.php? */
+            Header("Location:error.php");
+        }
+    }
+    
     function consultarPaginaAlumnos($conexion, $pagina_seleccionada, $intervalo, $total)
     {
     // Código para devolver una consulta paginada
@@ -96,7 +111,7 @@
             $stmt->bindParam(':oid', $oid);
             $stmt->execute();
             $res = $stmt->fetch();
-            return $res['NOMBRE'];            
+            return $res['NOMBRE'];          
         } catch (PDOException $e) {
             $_SESSION['excepcion'] = $e->getMessage();
             Header("Location:error.php");

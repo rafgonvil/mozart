@@ -3,7 +3,7 @@
 		<ul>
 			<li class="pestanaNavPie"><a title="Código SQL" href="TodoSQL.php">Código SQL</a></li>
  			<li class="pestanaNavPie"><a title="ListaAlumnos" href="alumnos.php">Listado de Alumnos</a></li>
- 			<li class="pestanaNavPie"><a title="ListaTutores" href="alumnos.php">Listado de Tutores</a></li>
+ 			<li class="pestanaNavPie"><a title="ListaTutores" href="tutores.php">Listado de Tutores</a></li>
 		</ul>
 	</div>
 	<br/>

@@ -1,22 +1,22 @@
 <?php
-    session_start();
-    include_once("gestionBD.php");
-    
-    if (!isset($_SESSION['tutor'])) {
-        Header("Location:tutores.php");
-    }
-    
-    $tutor = $_SESSION['tutor'];
-    
-    if (!isset($_SESSION['formMod'])) {
-        $formMod['email'] = $tutor['EMAIL'];
-        $formMod['telefono'] = $tutor['TELEFONO'];
-		$_SESSION['formMod'] = $formMod;
-    } else {
-        $formMod = $_SESSION['formMod'];
-    }
-    
-    $conexion = crearConexionBD();
+session_start();
+include_once ("gestionBD.php");
+
+if (!isset($_SESSION['tutor'])) {
+	Header("Location:tutores.php");
+}
+
+$tutor = $_SESSION['tutor'];
+
+if (!isset($_SESSION['formMod'])) {
+	$formMod['email'] = $tutor['EMAIL'];
+	$formMod['telefono'] = $tutor['TELEFONO'];
+	$_SESSION['formMod'] = $formMod;
+} else {
+	$formMod = $_SESSION['formMod'];
+}
+
+$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE HTML>
@@ -25,8 +25,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Información Tutor</title>
         <script src="scripts/funcionesInformacion.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/cssBase.css" />
+        <link type="text/css" rel="stylesheet" href="css/formulario.css" />
     </head>
     <body>
+    	 <?php
+		include_once ("CabeceraGenerica.php");
+	?>
         <h1>Panel de control</h1>
         <h3>Información sobre <?php echo $tutor['NOMBRE']; ?>:</h3>
         <div id="tabla_info">
@@ -44,8 +49,11 @@
                     <td><?php echo $tutor['FECHA_NACIMIENTO']; ?></td>
                     <td><?php echo $tutor['TELEFONO']; ?></td>
                     <td><?php echo $tutor['ALUMNO']; ?></td>
+                    <td> <button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button></td>
+         		    <td><button id="boton_eliminar" onclick="mostrarAdvertenciaTutor()">Eliminar</button></td>
                 </tr>
             </table>
+            <br />
         </div>
         <div id="erroresModificacion"></div>
         <!-- Inicialmente el formulario de modificación se oculta -->
@@ -53,11 +61,11 @@
         <div id="camposModificar" style="display: none">
             <form method="post" action="tratamientoInformacionTutor.php" onsubmit="return validaMod()">
                 <div id="div_email">
-                    <label for="input_email" id="label_input_email">Nuevo correo electrónico:</label>
+                    <label for="input_email" id="label_input_email"><b> Nuevo correo electrónico:</b> </label>
                     <input name="input_email" id="input_email" type="email" maxlength="50" value="<?php echo $formMod['email']; ?>" />
                 </div>
                 <div id="div_telefono">
-                    <label for="input_telefono" id="label_input_telefono">Nuevo teléfono:</label>
+                    <label for="input_telefono" id="label_input_telefono"><b> Nuevo teléfono: </b></label>
                     <input name="input_telefono" id="input_telefono" type="text" maxlength="9" value="<?php echo $formMod['telefono']; ?>" />
                 </div>
                 <div id="div_submit">
@@ -67,9 +75,11 @@
             </form>
         </div>
         <div id="botones">
-            <button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button>
-            <button id="boton_eliminar" onclick="mostrarAdvertenciaTutor()">Eliminar</button>
+           
         </div>
+        <?php
+			include_once ("pie.php");
+ ?>
     </body>
 </html>
 <?php cerrarConexionBD($conexion); ?>

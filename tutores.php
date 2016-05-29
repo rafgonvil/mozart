@@ -30,9 +30,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Gestión de centro: Tutores</title>
+         <link type="text/css" rel="stylesheet" href="css/cssBase.css" />
     </head>
     
     <body>
+    	<?php include_once ("CabeceraGenerica.php");?>
         <div id="contenidos">
             <div id="tutores">
                 <div id="paginacion">
@@ -98,7 +100,7 @@
             </div>
         </div>
         <?php
-            // include_once("pie.php");
+            include_once("pie.php");
             cerrarConexionBD($conexion);
         ?>
     </body>

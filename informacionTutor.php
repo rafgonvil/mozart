@@ -68,6 +68,7 @@
         </div>
         <div id="botones">
             <button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button>
+            <button id="boton_eliminar" onclick="mostrarAdvertenciaTutor()">Eliminar</button>
         </div>
     </body>
 </html>

@@ -44,9 +44,10 @@ $conexion = crearConexionBD();
                             $esp = consultarEspecialidadAsignatura($conexion, $asignatura['ESPECIALIDAD']);
                             $prof = consultarProfesorAsignatura($conexion, $asignatura['PROFESOR']);
 							$curso = consultarCursoAsignatura($conexion, $asignatura['ALUMNO']);
-							$nota = "-";
+							$nota = consultarNotaAsignatura($asignatura['OID_A'], $conexion);
                     ?>
                    	<form method="post" action="procesarAsignatura.php">
+                   		<input id="ALUMNO" name="ALUMNO" type="hidden" value="<?php echo $alumno['OID_P']; ?>" />
                         <input id="OID_A" name="OID_A" type="hidden" value="<?php echo $asignatura['OID_A']; ?>" />
                         <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $asignatura['NOMBRE']; ?>" />
                         <input id="PROFESOR" name="PROFESOR" type="hidden" value="<?php echo $prof; ?>" />

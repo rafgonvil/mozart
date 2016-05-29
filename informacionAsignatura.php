@@ -32,7 +32,7 @@ $conexion = crearConexionBD();
 		include_once ("CabeceraGenerica.php");
 	?>
         <h1>Panel de control</h1>
-        <h3>Información sobre <?php echo $alumno['NOMBRE']; ?>:</h3>
+        <h3>Información sobre <?php echo $asignatura['NOMBRE']; ?>:</h3>
         <div id="tabla_info">
             <table>
 				<tr>
@@ -60,14 +60,10 @@ $conexion = crearConexionBD();
         <!-- Inicialmente el formulario de modificación se oculta -->
         <!-- El parámetro de style debería estar definido en el css de esta página -->
         <div id="camposModificar" style="display: none">
-            <form method="post" action="tratamientoInformacionAsignatura.php" onsubmit="return validaMod()">
+            <form method="post" action="tratamientoInformacionAsignatura.php" onsubmit="return validaPunt()">
                 <div id="div_email">
-                    <label for="input_email" id="label_input_email"><b> Nuevo correo electrónico: </b> </label>
-                    <input name="input_email" id="input_email" type="email" maxlength="50" value="<?php echo $formMod['email']; ?>" />
-                </div>
-                <div id="div_telefono">
-                    <label for="input_telefono" id="label_input_telefono"><b> Nuevo teléfono: </b> </label>
-                    <input name="input_telefono" id="input_telefono" type="text" maxlength="9" value="<?php echo $formMod['telefono']; ?>" />
+                    <label for="input_nota" id="label_input_nota"><b> Nueva nota: </b> </label>
+                    <input name="input_nota" id="input_nota" type="text" maxlength="50" value="<?php echo $formPunt['NOTA']; ?>" />
                 </div>
                 <div id="div_submit">
                     <button id="input_submit" name="input_submit" type="submit">Subir cambios</button>

@@ -38,6 +38,28 @@ function validaMod()
 	return res;
 }
 
+function validaPunt()
+{
+	var res = true;
+	document.getElementById("erroresModificacion").innerHTML="";
+	
+	if (comprueba("input_nota")) {
+		res = false;
+	}
+	
+	if (comprueba("input_nota")) {
+		document.getElementById("erroresModificacion").innerHTML+="El campo nota no puede estar vacío</br>";
+		document.getElementById("label_input_nota").style.color="red";
+	} else {
+		document.getElementById("label_input_nota").style.color="black";
+	}
+	
+	
+	document.close();
+	return res;
+}
+
+
 function comprueba(str)
 {
 	var res = false;

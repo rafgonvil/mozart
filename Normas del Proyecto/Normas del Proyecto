@@ -2,9 +2,8 @@
 Para el APROBADO:
 - Usar marcado HTML 5 estricto. ?
 
-- Acceder a una base de datos en 3FN para inserción, actualización, borrado y consulta. WIP
-- Formatear el resultado de al menos una consulta a la base de datos en una tabla HTML. WIP
-
+- Acceder a una base de datos en 3FN para inserción, actualización, borrado y consulta. HECHO
+- Formatear el resultado de al menos una consulta a la base de datos en una tabla HTML. HECHO
 - Ausencia de errores de programación. HECHO.
 - Usar hojas de estilo CSS en archivos externos. HECHO
 - Maquetar con CSS todas las páginas. HECHO

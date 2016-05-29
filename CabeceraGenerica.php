@@ -7,9 +7,9 @@
 		 <div class="barraNavegacion">
 		 	<ul>
 		 	<li class="pestanaNav"><a title="Página inicial" href="indice.php">Pagina Principal</a></li>
-		 	<li class="pestanaNav"><a title="AcercaDe" href="acercade.php">Acerca De</a></li>
 		 	<li class="pestanaNav"><a title="FormularioAlumnos" href="formularioAlumnos.php">Formulario para alumnos</a></li>
-			<li class="pestanaNav"><a title="FormularioTutores" href="formularioTutores.php">Formulario para tutores</a></li>
+		 	<li class="pestanaNav"><a title="FormularioTutores" href="formularioTutores.php">Formulario para tutores</a></li>
+		 	<li class="pestanaNav"><a title="AcercaDe" href="acercade.php">Acerca De</a></li>
 		 	</ul>
 		 </div>
 	</header>

@@ -24,8 +24,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Información Alumno</title>
         <script src="scripts/funcionesInformacionAlumno.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/cssBase.css" />
+        <link type="text/css" rel="stylesheet" href="css/formulario.css" />
+
     </head>
     <body>
+    	<?php include_once ("CabeceraGenerica.php");?>
         <h1>Panel de control</h1>
         <h3>Información sobre <?php echo $alumno['NOMBRE']; ?>:</h3>
         <div id="tabla_info">
@@ -45,8 +49,12 @@
                     <td><?php echo $alumno['TELEFONO']; ?></td>
                     <td><?php echo $alumno['CURSO']; ?></td>
                     <td><?php echo $alumno['ESPECIALIDAD']; ?></td>
+                    <td> 
+                    <button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button>
+                    </td>
                 </tr>
             </table>
+            <br />
         </div>
         <div id="erroresModificacion"></div>
         
@@ -54,11 +62,11 @@
         <div id="camposModificar" style="display: none">
             <form method="post" action="tratamientoInformacionAlumno.php" onsubmit="return validaMod()">
                 <div id="div_email">
-                    <label for="input_email" id="label_input_email">Nuevo correo electrónico:</label>
+                    <label for="input_email" id="label_input_email"><b> Nuevo correo electrónico: </b> </label>
                     <input name="input_email" id="input_email" type="email" maxlength="50" value="<?php echo $formMod['email']; ?>" />
                 </div>
                 <div id="div_telefono">
-                    <label for="input_telefono" id="label_input_telefono">Nuevo teléfono:</label>
+                    <label for="input_telefono" id="label_input_telefono"><b> Nuevo teléfono: </b> </label>
                     <input name="input_telefono" id="input_telefono" type="text" maxlength="9" value="<?php echo $formMod['telefono']; ?>" />
                 </div>
                 <div id="div_submit">
@@ -68,8 +76,8 @@
             </form>
         </div>
         <div id="botones">
-            <button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button>
         </div>
+        <?php include_once ("pie.php"); ?>
     </body>
 </html>
 <?php cerrarConexionBD($conexion); ?>

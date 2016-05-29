@@ -22,7 +22,6 @@ $conexion = crearConexionBD();
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link type="text/css" rel="stylesheet" href="css/cssBase.css">
 	<title>Éxito</title>
-	<!-- <link type="text/css" rel="stylesheet" href="estilo/exito.css"> -->
 </head>
 <body>
 	<?php
@@ -37,6 +36,7 @@ $conexion = crearConexionBD();
 		insertarTutor($formulario['nombre'], $formulario['apellidos'], $formulario['dni'], $formulario['letra'], $formulario['email'], $formulario['fnac'], 
 		$formulario['telefono'], $formulario['dniAlumno'], $formulario['letraAlumno'], $conexion);
 		
+
 		?>
 		<h1>Entrada registrada con éxito</h1>
 		<a href="formularioTutores.php">Aquí</a> para volver al registro.

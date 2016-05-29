@@ -1,9 +1,5 @@
 <?php
 session_start();
-require_once ("gestionBD.php");
-require_once ("gestionEntradasAlumnos.php");
-
-$conexion = crearConexionBD();
 
 if (!isset($_SESSION['alumno'])) {
 	Header("Location:alumnos.php");
@@ -24,5 +20,5 @@ if (isset($_REQUEST['info']))
 	Header("Location:informacionAlumno.php");
 
 if (isset($_REQUEST['asig']))
-	Header("Location:informacionAsignaturas.php");
+	Header("Location:asignaturas.php");
 ?>

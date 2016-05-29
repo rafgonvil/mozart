@@ -4,7 +4,7 @@
     {
         try {
             $consulta = "SELECT ESPECIALIDAD.NOMBRE FROM ESPECIALIDAD ".
-                       "WHERE ESPECIALIDAD.OID_E = :oid";
+                       "WHERE ESPECIALIDAD.OID_E = :oid ";
             $stmt = $conexion->prepare($consulta);
             $stmt->bindParam(':oid', $oid);
             $stmt->execute();

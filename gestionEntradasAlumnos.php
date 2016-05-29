@@ -94,7 +94,8 @@ function consultarTotalAlumnos($conexion) {
 
 function consultarEspecialidadAlumno($conexion, $oid) {
 	try {
-		$consulta = "SELECT ESPECIALIDAD.NOMBRE FROM TIENE NATURAL JOIN ESPECIALIDAD " . "WHERE TIENE.ALUMNO = :oid";
+		$consulta = "SELECT ESPECIALIDAD.NOMBRE FROM TIENE NATURAL JOIN ESPECIALIDAD WHERE 
+		(TIENE.ALUMNO = :oid AND ESPECIALIDAD.OID_E = TIENE.ESPECIALIDAD)";
 		$stmt = $conexion -> prepare($consulta);
 		$stmt -> bindParam(':oid', $oid);
 		$stmt -> execute();
@@ -119,4 +120,5 @@ function consultarAsignaturasAlumno($conexion, $oid) {
 		Header("Location:error.php");
 	}
 }
+
 ?>

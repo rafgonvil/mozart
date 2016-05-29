@@ -120,4 +120,5 @@ function consultarAsignaturasAlumno($conexion, $oid) {
 		Header("Location:error.php");
 	}
 }
+
 ?>

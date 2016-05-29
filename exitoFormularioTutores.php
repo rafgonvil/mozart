@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once ("gestionBD.php");
-include_once ("gestionEntradasAlumnos.php");
+include_once ("gestionEntradasTutores.php");
 if (isset($_SESSION['formularioTutor'])) {
 	/*
 	 * Se recogen los datos del formulario y se almacenan
@@ -22,7 +22,6 @@ $conexion = crearConexionBD();
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link type="text/css" rel="stylesheet" href="css/cssBase.css">
 	<title>Éxito</title>
-	<!-- <link type="text/css" rel="stylesheet" href="estilo/exito.css"> -->
 </head>
 <body>
 	<?php
@@ -34,9 +33,10 @@ $conexion = crearConexionBD();
 		 * A partir de los datos del formulario se introduce un alumno
 		 * en la tabla ALUMNO
 		 */
-		insertarTutor($formulario['nombreTutor'], $formulario['apellidosTutor'], $formulario['dniTutor'], $formulario['letraTutor'], $formulario['emailTutor'], $formulario['fnacTutor'], 
-		$formulario['telefonoTutor'], $formulario['dniAlumnoTutor'], $formulario['letraAumnoTutor'], $conexion);
+		insertarTutor($formulario['nombre'], $formulario['apellidos'], $formulario['dni'], $formulario['letra'], $formulario['email'], $formulario['fnac'], 
+		$formulario['telefono'], $formulario['dniAlumno'], $formulario['letraAlumno'], $conexion);
 		
+
 		?>
 		<h1>Entrada registrada con éxito</h1>
 		<a href="formularioTutores.php">Aquí</a> para volver al registro.

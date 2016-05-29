@@ -7,7 +7,7 @@
 	margin-bottom: 0.1em;
 }
 
-#div_dni, #div_dni_alumno, #div_nombre, #div_apellidos, #div_email, #div_fecha, #div_curso, #div_especialidad, #div_telefono, #div_alumno{
+#div_dni, #div_dni_alumno, #div_nombre, #div_apellidos, #div_email, #div_fecha, #div_curso, #div_especialidad, #div_telefono, #div_alumno {
 	margin-left: 5%;
 	margin-bottom: 1.2em;
 }
@@ -25,41 +25,23 @@
 	left: 50%;
 }
 
-input#letra {
+input#letra, #letraAlumno, #letraAlumnoTutor, #letraTutor {
 	width: 25px;
 }
 
-input#letraAlumno {
-	width: 25px;
-}
-
-
-input#letraTutor {
-	width: 25px;
-}
-
-input#letraAlumnoTutor {
-	width: 25px;
-}
-
-input#telefono {
+input#telefonoTutor, #telefonoAlumno {
 	width: 75px;
 }
 
-input#dni {
+input#dni, #dniAlumno, #dniTutor, #dniAlumnoTutor {
 	width: 70px;
 }
 
-input#dniAlumno{
-	width :70px;	
-}
 
-label#label_letraAlumno{
+label#label_letra {
 		margin-left: 23px;
 }
 
 label#label_letraTutor {
 		margin-left: 23px;
 }
-
-

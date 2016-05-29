@@ -87,7 +87,7 @@ if (isset($_SESSION['erroresTutor'])) {
 				<label for="dniAlumnoTutor" id="label_dniAlumno">Número DNI Alumno:</label>
 				<input id="dniAlumnoTutor" name="dniAlumnoTutor" type="text" maxlength="8" value="<?php echo $formulario['dniAlumnoTutor']; ?>"/>
 				</input>
-				<label for="letraAlumnoTutor" id="label_letraAlumno">Letra Alumno:</label>
+				<label for="letraAlumnoTutor" id="label_letraAlumno">Letra:</label>
 				<input id="letraAlumnoTutor" name="letraAlumnoTutor" type="text" maxlength="1" value="<?php echo $formulario['letraAlumnoTutor']; ?>"/>
 				</input>
 			</div>

@@ -1,36 +1,44 @@
 <?php
-function insertarTutor($nombre, $apellidos, $numDni, $letraDni, $email, $fnac, $telefono, $conexion, $numAlumno, $letraAlumno) {
+function insertarTutor($nombre, $apellidos, $numDni, $letraDni, $email, $fnac, $telefono, $numAlumno, $letraAlumno, $conexion) {
 	try {
 		$fnacFormateada = DateTime::createFromFormat('Y-m-d', $fnac) -> format('d-m-Y');
-		$dniFinal = $numDni . $letraDni;
+		$dniTutor = $numDni . $letraDni;
 		$dniAlumno = $numAlumno . $letraAlumno;
 		$nombreFinal = $nombre . " " . $apellidos;
 		$stmt = $conexion -> prepare('CALL INSERTAR_TUTOR(:dni,:nombre,
                                        :fecha,:telefono,:email)');
-		$stmt -> bindParam(':dni', $dniFinal);
+		$stmt -> bindParam(':dni', $dniTutor);
 		$stmt -> bindParam(':nombre', $nombreFinal);
 		$stmt -> bindParam(':fecha', $fnacFormateada);
 		$stmt -> bindParam(':telefono', $telefono);
 		$stmt -> bindParam(':email', $email);
 		$stmt -> execute();
-		
-		$consulta = $conexion -> prepare('SELECT * FROM ALUMNO WHERE ALUMNO.DNI = :dni');
+
+		$consulta = $conexion -> prepare('SELECT OID_P FROM PERSONA WHERE PERSONA.DNI = :dni');
 		$consulta -> bindParam(':dni', $dniAlumno);
 		$consulta -> execute();
-		$alumno = $consulta -> fetch();
-		$oid_alumno = $alumno['OID_A'];
-		
-		$insertar = $conexion -> prepare('CALL INSERTAR_SE_RESPONSABILIZA_D(SEC_TUTOR.CURRVAL,:oid_a');
+		foreach ($consulta as $fila) {
+			$oid_alumno = $fila['OID_P'];
+		}
+
+		$consulta1 = $conexion -> prepare('SELECT OID_P FROM PERSONA WHERE PERSONA.DNI = :dni');
+		$consulta1 -> bindParam(':dni', $dniTutor);
+		$consulta1 -> execute();
+		foreach ($consulta1 as $fila) {
+			$oid_tutor = $fila['OID_P'];
+		}
+
+		$insertar = $conexion -> prepare('CALL INSERTAR_SE_RESPONSABILIZA_DE(:oid_t, :oid_a)');
 		$insertar -> bindParam(':oid_a', $oid_alumno);
+		$insertar -> bindParam(':oid_t', $oid_tutor);
 		$insertar -> execute();
-		
+
 	} catch (PDOException $e) {
 		$_SESSION['excepcion'] = $e -> getMessage();
 		Header("Location:error.php");
 	}
 	return $insertar;
 }
-
 
 function consultarTotalTutores($conexion) {
 	try {

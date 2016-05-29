@@ -42,7 +42,7 @@ function validaTut() {
 	if (!compruebaDni2()) {
 		document.getElementById("label_dniAlumno").style.color = "red";
 		document.getElementById("label_letraAlumno").style.color = "red";
-		document.getElementById("erroresTutor").innerHTML += 'El campo DNI no es correcto <br/>';
+		document.getElementById("erroresTutor").innerHTML += 'El campo DNI del alumnno no es correcto <br/>';
 	} else {
 		document.getElementById("label_letraAlumno").style.color = "black";
 		document.getElementById("label_dniALumno").style.color = "black";

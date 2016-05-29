@@ -1,21 +1,20 @@
 <?php
-    session_start();
-    include_once("gestionBD.php");
-    if (!isset($_SESSION['alumno'])) {
-        Header("Location:alumnos.php");
-    }
-    
-    $alumno = $_SESSION['alumno'];
-    // unset($_SESSION['alumno']);
-    
-    if (!isset($_SESSION['formMod'])) {
-        $formMod['email'] = $alumno['EMAIL'];
-        $formMod['telefono'] = $alumno['TELEFONO'];
-        $_SESSION['formMod'] = $formMod;
-    } else {
-        $formMod = $_SESSION['formMod'];
-    }
-    $conexion = crearConexionBD();
+session_start();
+include_once ("gestionBD.php");
+if (!isset($_SESSION['asignatura'])) {
+	Header("Location:asignaturas.php");
+}
+
+$asignatura = $_SESSION['asignatura'];
+// unset($_SESSION['alumno']);
+
+if (!isset($_SESSION['formPunt'])) {
+	$formPunt['NOTA'] = $asignatura['NOTA'];
+	$_SESSION['formPunt'] = $formPunt;
+} else {
+	$formPunt = $_SESSION['formPunt'];
+}
+$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE HTML>
@@ -29,26 +28,26 @@
         <script src="scripts/funcionesInformacion.js"></script>
     </head>
     <body>
-    	<?php include_once ("CabeceraGenerica.php");?>
+    	<?php
+		include_once ("CabeceraGenerica.php");
+	?>
         <h1>Panel de control</h1>
         <h3>Información sobre <?php echo $alumno['NOMBRE']; ?>:</h3>
         <div id="tabla_info">
             <table>
-                <tr>
-                    <th>DNI</th>
-                    <th>Email</th>
-                    <th>Fecha de nacimiento</th>
-                    <th>Teléfono</th>
-                    <th>Curso</th>
-                    <th>Especialidad</th>
+				<tr>
+                     <th>Nombre</th>
+                     <th>Profesor</th>
+                     <th>Curso</th>
+                     <th>Especialidad</th>
+                     <th>Nota</th>
                 </tr>
                 <tr>
-                    <td><?php echo $alumno['DNI']; ?></td>
-                    <td><?php echo $alumno['EMAIL']; ?></td>
-                    <td><?php echo $alumno['FECHA_NACIMIENTO']; ?></td>
-                    <td><?php echo $alumno['TELEFONO']; ?></td>
-                    <td><?php echo $alumno['CURSO']; ?></td>
-                    <td><?php echo $alumno['ESPECIALIDAD']; ?></td>
+                    <td><?php echo $asignatura['NOMBRE']; ?></td>
+                    <td><?php echo $asignatura['PROFESOR']; ?></td>
+                    <td><?php echo $asignatura['CURSO']; ?></td>
+                    <td><?php echo $asignatura['ESPECIALIDAD']; ?></td>
+					<td><?php echo $asignatura['NOTA']; ?></td>
                     <td> 
                     <button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button>
                     </td>
@@ -61,7 +60,7 @@
         <!-- Inicialmente el formulario de modificación se oculta -->
         <!-- El parámetro de style debería estar definido en el css de esta página -->
         <div id="camposModificar" style="display: none">
-            <form method="post" action="tratamientoInformacionAlumno.php" onsubmit="return validaMod()">
+            <form method="post" action="tratamientoInformacionAsignatura.php" onsubmit="return validaMod()">
                 <div id="div_email">
                     <label for="input_email" id="label_input_email"><b> Nuevo correo electrónico: </b> </label>
                     <input name="input_email" id="input_email" type="email" maxlength="50" value="<?php echo $formMod['email']; ?>" />
@@ -78,7 +77,9 @@
         </div>
         <div id="botones">
         </div>
-        <?php include_once ("pie.php"); ?>
+        <?php
+		include_once ("pie.php");
+ ?>
     </body>
 </html>
 <?php cerrarConexionBD($conexion); ?>

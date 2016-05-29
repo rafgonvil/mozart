@@ -75,7 +75,7 @@ if (isset($_SESSION['erroresTutor'])) {
 
 			<div id="div_fecha">
 				<label for="fnacTutor" id="label_fnacTutor">Fecha de nacimiento:</label>
-				<input id="fnacTutor" type="date" name="fnacTutor" step="1" min="1990-01-01" max="<?php echo date("Y-m-d") ?>"/>
+				<input id="fnacTutor" type="date" name="fnacTutor" step="1" min="1920-01-01" max="<?php echo date("Y-m-d") ?>"/>
 			</div>
 
 			<div id="div_telefono">

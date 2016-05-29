@@ -78,11 +78,13 @@ function consultarPaginaTutores($conexion, $pagina_seleccionada, $intervalo, $to
     }
 }
 
-function consultarAlumnoTutor($conexion, $oid) {
+function consultarAlumnoTutor($conexion, $oida) {
 	try {
-		$consulta = "SELECT NOMBRE FROM SE_RESPONSABILIZA_DE, PERSONA WHERE SE_RESPONSABILIZA_DE.ALUMNO = :oid";
+		$consulta = "SELECT NOMBRE FROM SE_RESPONSABILIZA_DE, PERSONA ".
+		            "WHERE (SE_RESPONSABILIZA_DE.ALUMNO = :oida ".
+                    "AND SE_RESPONSABILIZA_DE.ALUMNO = PERSONA.OID_P)";
 		$stmt = $conexion -> prepare($consulta);
-		$stmt -> bindParam(':oid', $oid);
+		$stmt -> bindParam(':oida', $oida);
 		$stmt -> execute();
 		$res = $stmt -> fetch();
 		return $res['NOMBRE'];
@@ -91,4 +93,19 @@ function consultarAlumnoTutor($conexion, $oid) {
 		Header("Location:error.php");
 	}
 }
+
+function modificarTutor($email, $telefono, $oid, $conexion)
+    {
+        try {
+            $stmt = $conexion->prepare('CALL ACTUALIZAR_TUTOR(:telefono, :email, :oid)');
+            $stmt->bindParam(':telefono', $telefono);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':oid', $oid);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            $_SESSION['excepcion'] = $e->getMessage();
+            /* Mejorar error.php para poder ir a alumnos.php? */
+            Header("Location:error.php");
+        }
+    }
 ?>

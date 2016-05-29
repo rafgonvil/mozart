@@ -71,16 +71,27 @@
                     <?php 
                         $filas = consultarPaginaTutores($conexion, $numero_pagina, $tam_pagina, $total);
                         foreach($filas as $fila) {
+                            // ALUMNO es el OID_P del alumno del tutor
                             $alm = consultarAlumnoTutor($conexion, $fila['ALUMNO']);
                     ?>
-                        <tr class="alumno">
-                            <td><?php echo $fila['NOMBRE'];  ?></td>
-                            <td><?php echo $fila['DNI'];  ?></td>
-                            <td><?php echo $fila['EMAIL'];  ?></td>
-                            <td><?php echo $fila['FECHA_NACIMIENTO'];  ?></td>
-                            <td><?php echo $fila['TELEFONO'];  ?></td>
-                            <td><?php echo $alm;  ?></td>
-                        </tr>
+                        <form method="post" action="procesarTutor.php">
+                            <input id="OID_P" name="OID_P" type="hidden" value="<?php echo $fila['OID_P']; ?>" />
+                            <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila['NOMBRE']; ?>" />
+                            <input id="DNI" name="DNI" type="hidden" value="<?php echo $fila['DNI']; ?>" />
+                            <input id="EMAIL" name="EMAIL" type="hidden" value="<?php echo $fila['EMAIL']; ?>" />
+                            <input id="FECHA_NACIMIENTO" name="FECHA_NACIMIENTO" type="hidden" value="<?php echo $fila['FECHA_NACIMIENTO']; ?>" />
+                            <input id="TELEFONO" name="TELEFONO" type="hidden" value="<?php echo $fila['TELEFONO']; ?>" />
+                            <input id="ALUMNO" name="ALUMNO" type="hidden" value="<?php echo $alm; ?>"/>
+                            <tr class="tutor">
+                                <td><?php echo $fila['NOMBRE'];  ?></td>
+                                <td><?php echo $fila['DNI'];  ?></td>
+                                <td><?php echo $fila['EMAIL'];  ?></td>
+                                <td><?php echo $fila['FECHA_NACIMIENTO'];  ?></td>
+                                <td><?php echo $fila['TELEFONO'];  ?></td>
+                                <td><?php echo $alm; ?></td>
+                                <td><button id="info" name="info" type="submit">Administrar</button></td>
+                            </tr>
+                        </form>
                     <?php } ?>
                     </table>
                 </div>

@@ -105,8 +105,9 @@
     function consultarEspecialidadAlumno($conexion, $oid)
     {
         try {
-            $consulta = "SELECT ESPECIALIDAD.NOMBRE FROM TIENE NATURAL JOIN ESPECIALIDAD ".
-                       "WHERE TIENE.ALUMNO = :oid";
+            $consulta = "SELECT ESPECIALIDAD.NOMBRE FROM TIENE, ESPECIALIDAD ".
+                       "WHERE (TIENE.ALUMNO = :oid ".
+                       "AND TIENE.ESPECIALIDAD = ESPECIALIDAD.OID_E)";
             $stmt = $conexion->prepare($consulta);
             $stmt->bindParam(':oid', $oid);
             $stmt->execute();

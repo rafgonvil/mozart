@@ -1,20 +1,21 @@
 <?php
     session_start();
     include_once("gestionBD.php");
-    if (!isset($_SESSION['alumno'])) {
-        Header("Location:alumnos.php");
+    
+    if (!isset($_SESSION['tutor'])) {
+        Header("Location:tutores.php");
     }
     
-    $alumno = $_SESSION['alumno'];
-    // unset($_SESSION['alumno']);
+    $tutor = $_SESSION['tutor'];
     
     if (!isset($_SESSION['formMod'])) {
-        $formMod['email'] = $alumno['EMAIL'];
-        $formMod['telefono'] = $alumno['TELEFONO'];
-        $_SESSION['formMod'] = $formMod;
+        $formMod['email'] = $tutor['EMAIL'];
+        $formMod['telefono'] = $tutor['TELEFONO'];
+		$_SESSION['formMod'] = $formMod;
     } else {
         $formMod = $_SESSION['formMod'];
     }
+    
     $conexion = crearConexionBD();
 ?>
 
@@ -22,12 +23,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Información Alumno</title>
+        <title>Información Tutor</title>
         <script src="scripts/funcionesInformacion.js"></script>
     </head>
     <body>
         <h1>Panel de control</h1>
-        <h3>Información sobre <?php echo $alumno['NOMBRE']; ?>:</h3>
+        <h3>Información sobre <?php echo $tutor['NOMBRE']; ?>:</h3>
         <div id="tabla_info">
             <table>
                 <tr>
@@ -35,25 +36,22 @@
                     <th>Email</th>
                     <th>Fecha de nacimiento</th>
                     <th>Teléfono</th>
-                    <th>Curso</th>
-                    <th>Especialidad</th>
+                    <th>Alumno</th>
                 </tr>
                 <tr>
-                    <td><?php echo $alumno['DNI']; ?></td>
-                    <td><?php echo $alumno['EMAIL']; ?></td>
-                    <td><?php echo $alumno['FECHA_NACIMIENTO']; ?></td>
-                    <td><?php echo $alumno['TELEFONO']; ?></td>
-                    <td><?php echo $alumno['CURSO']; ?></td>
-                    <td><?php echo $alumno['ESPECIALIDAD']; ?></td>
+                    <td><?php echo $tutor['DNI']; ?></td>
+                    <td><?php echo $tutor['EMAIL']; ?></td>
+                    <td><?php echo $tutor['FECHA_NACIMIENTO']; ?></td>
+                    <td><?php echo $tutor['TELEFONO']; ?></td>
+                    <td><?php echo $tutor['ALUMNO']; ?></td>
                 </tr>
             </table>
         </div>
         <div id="erroresModificacion"></div>
-        
         <!-- Inicialmente el formulario de modificación se oculta -->
         <!-- El parámetro de style debería estar definido en el css de esta página -->
         <div id="camposModificar" style="display: none">
-            <form method="post" action="tratamientoInformacionAlumno.php" onsubmit="return validaMod()">
+            <form method="post" action="tratamientoInformacionTutor.php" onsubmit="return validaMod()">
                 <div id="div_email">
                     <label for="input_email" id="label_input_email">Nuevo correo electrónico:</label>
                     <input name="input_email" id="input_email" type="email" maxlength="50" value="<?php echo $formMod['email']; ?>" />

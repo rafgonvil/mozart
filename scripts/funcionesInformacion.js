@@ -13,9 +13,11 @@ function ocultarCamposModificar()
 
 function mostrarAdvertenciaTutor()
 {
-	var r = window.confirm("¿Está seguro de que desea eliminar a este tutor?");
-	if (r == true)
-		window.location("error.php");
+	var r = confirm("¿Está seguro de que desea eliminar a este tutor?");
+	if (r == true) {
+		window.location = "http://localhost/IISSI/mozart/exitElimTutor.php";
+	}
+	
 }
 
 function validaMod()

@@ -14,10 +14,15 @@ function ocultarCamposModificar()
 function mostrarAdvertenciaTutor()
 {
 	var r = confirm("¿Está seguro de que desea eliminar a este tutor?");
-	if (r == true) {
+	if (r == true)
 		window.location = "http://localhost/IISSI/mozart/exitElimTutor.php";
-	}
-	
+}
+
+function mostrarAdvertenciaAlumno()
+{
+	var r = confirm("¿Está seguro de que desea eliminar a este alumno?");
+	if (r == true)
+		window.location = "http://localhost/IISSI/mozart/exitElimAlumno.php";
 }
 
 function validaMod()

@@ -49,9 +49,9 @@
                     <td><?php echo $alumno['TELEFONO']; ?></td>
                     <td><?php echo $alumno['CURSO']; ?></td>
                     <td><?php echo $alumno['ESPECIALIDAD']; ?></td>
-                    <td> 
-                    <button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button>
-                    </td>
+                    <td><button id="boton_modificar" onclick="mostrarCamposModificar()">Modificar</button></td>
+           		    <td><button id="boton_eliminar" onclick="mostrarAdvertenciaAlumno()">Eliminar</button></td>
+
                 </tr>
             </table>
             <br />

@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['formPunt'])) {
 	Header("Location:asignaturas.php");
 } else {
-	$formPunt['NOTA'] = $_SESSION['formPunt']['NOTA'];
+	$formPunt['NOTA'] = $_REQUEST['input_nota'];
 	$_SESSION['formPunt'] = $formPunt;
 }
 
@@ -13,7 +13,7 @@ if (count($errores) > 0) {
 	$_SESSION['errores'] = $errores;
 	Header("Location:informacionAsignatura.php");
 } else {
-	Header("Location:exitoModAlumno.php");
+	Header("Location:exitoModAsignatura.php");
 }
 
 function validarMod($formulario) {

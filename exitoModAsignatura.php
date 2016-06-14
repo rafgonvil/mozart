@@ -24,7 +24,7 @@ $conexion = crearConexionBD();
 <body>
 	<div>
 		<?php
-		modificarAsignatura($formularioPunt['ALUMNO'], $formularioPunt['oid'], $formularioPunt['PROFESOR'], $formularioPunt['NOTA'], $conexion);
+		modificarAsignatura($formularioPunt['oid'], $formularioPunt['NOTA'], $conexion);
 		?>
 		<h1>Modificación registrada con éxito</h1>
 		<a href="asignaturas.php">Aquí</a> para volver al listado de alumnos.

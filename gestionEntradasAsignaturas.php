@@ -42,17 +42,13 @@ function consultarCursoAsignatura($conexion, $oid) {
 	}
 }
 
-function modificarAsignatura($oid_p, $oid_a, $oid_pr, $nota, $conexion) {
+function modificarAsignatura($oid_a, $nota, $conexion) {
 	try {
-		$consulta = "CALL INSERTAR_NOTA(:oid_p,:oid_a,:nota,'PRIMERA_CONVOCATORIA', :oid_pr )";
+		$consulta = "CALL ACTUALIZAR_NOTA(:valor, :oid_a)";
 		$stmt = $conexion -> prepare($consulta);
-		$stmt -> bindParam(':oid_p', $oid_p);
 		$stmt -> bindParam(':oid_a', $oid_a);
-		$stmt -> bindParam(':oid_pr', $oid_pr);
-		$stmt -> bindParam(':nota', $nota);
+		$stmt -> bindParam(':valor', $nota);
 		$stmt -> execute();
-		$res = $stmt -> fetch();
-		return $res;
 	} catch (PDOException $e) {
 		$_SESSION['excepcion'] = $e -> getMessage();
 		Header("Location:error.php");

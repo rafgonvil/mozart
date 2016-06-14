@@ -653,6 +653,16 @@ BEGIN
   UPDATE PERSONA SET telefono=w_telefono WHERE oid_p=w_oid_p;
   UPDATE PERSONA SET email=w_email WHERE oid_p=w_oid_p;
 END ACTUALIZAR_PROFESOR;
+
+/
+
+create or replace PROCEDURE ACTUALIZAR_NOTA
+  (w_valor NOTA.VALOR%TYPE,
+  w_oid_a NOTA.OID_A%TYPE) AS
+BEGIN
+  UPDATE NOTA SET valor=w_valor WHERE oid_a=w_oid_a;
+END ACTUALIZAR_NOTA;
+
 /
 
 CREATE OR REPLACE PROCEDURE ACTUALIZAR_TUTOR

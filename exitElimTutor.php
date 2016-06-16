@@ -1,33 +1,39 @@
 <?php
-    session_start();
-    include_once("gestionBD.php");
-    include_once("gestionEntradasTutores.php");
-    if (isset($_SESSION['formMod'])) {
-        $formularioMod = $_SESSION['formMod'];
-        $formularioMod['oid'] = $_SESSION['tutor']['OID_P'];
-        unset($_SESSION['formModTutor']);
-        unset($_SESSION['errores']);
-        unset($_SESSION['tutor']);
-    } else {
-        Header("Location:tutores.php");
-    }
-    
-    $conexion = crearConexionBD();
+session_start();
+include_once ("gestionBD.php");
+include_once ("gestionEntradasTutores.php");
+if (isset($_SESSION['formMod'])) {
+	$formularioMod = $_SESSION['formMod'];
+	$formularioMod['oid'] = $_SESSION['tutor']['OID_P'];
+	unset($_SESSION['formModTutor']);
+	unset($_SESSION['errores']);
+	unset($_SESSION['tutor']);
+} else {
+	Header("Location:tutores.php");
+}
+
+$conexion = crearConexionBD();
 ?>
-	
-	<!DOCTYPE HTML>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<title>Éxito</title>
-		<link type="text/css" rel="stylesheet" href="css/cssBase.css">
-	</head>
-	<body>
-		<div>
-			<?php
-				eliminarTutor($conexion, $formularioMod['oid']);
-			?>
-			<h1>Entrada eliminada con éxito</h1>
-			<a href="informacionTutor.php">Aquí</a> para volver al registro.
-		</div>
-	</body>	
+
+<!DOCTYPE HTML>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Éxito</title>
+	<link type="text/css" rel="stylesheet" href="css/cssBase.css">
+</head>
+<body>
+	<?php
+	include_once ("CabeceraGenerica.php");
+	?>
+	<div>
+		<?php
+		eliminarTutor($conexion, $formularioMod['oid']);
+		?>
+		<h1>Entrada eliminada con éxito</h1>
+		<a href="informacionTutor.php">Aquí</a> para volver al registro.
+	</div>
+	<?php
+	include_once ("Pie.php");
+	?>
+</body>
 <?php cerrarConexionBD($conexion); ?>

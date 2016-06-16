@@ -59,6 +59,12 @@ function validaAlm() {
 	} else
 		document.getElementById("label_telefono").style.color = "black";
 
+	if (!compruebaTelefono()) {
+		document.getElementById("label_telefono").style.color = "red";
+		document.getElementById("erroresAlumno").innerHTML += 'El campo teléfono no es correcto<br/>';
+	} else
+		document.getElementById("label_telefonoTutor").style.color = "black";
+
 	if (compruebaVacio("cursoAlumno")) {
 		document.getElementById("label_curso").style.color = "red";
 		document.getElementById("erroresAlumno").innerHTML += 'El campo curso no puede estar vacío <br/>';
@@ -76,10 +82,9 @@ function validaAlm() {
 }
 
 function compruebaVacio(str) {
-	var res = false;
-	if (document.getElementById(str).value == "") {
-		res = true;
-	}
+	var res = true;
+	if (/([^\s])/.test(document.getElementById(str).value)) 
+		res = false;
 
 	return res;
 }
@@ -87,7 +92,7 @@ function compruebaVacio(str) {
 function compruebaDni() {
 	var res = true;
 	var dni = document.getElementById("dniAlumno").value;
-	if (dni.length < 8)
+	if (!/^.{8}$/.test(dni))
 		res = false;
 	else {
 		var letra = document.getElementById("letraAlumno").value;
@@ -99,6 +104,15 @@ function compruebaDni() {
 		if (letra != letraCorrecta)
 			res = false;
 	}
+
+	return res;
+}
+
+function compruebaTelefono() {
+	var res = true;
+	var tel = document.getElementById("telefonoAlumno").value;
+	if (!/^.{9}$/.test(tel))
+		res = false;
 
 	return res;
 }

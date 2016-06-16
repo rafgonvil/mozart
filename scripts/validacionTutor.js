@@ -23,7 +23,7 @@ function validaTut() {
 		document.getElementById("erroresTutor").innerHTML += 'El campo DNI no puede estar vacío <br/>';
 	} else
 		document.getElementById("label_dniTutor").style.color = "black";
-
+	
 	if (compruebaVacio("letraTutor")) {
 		document.getElementById("label_letraTutor").style.color = "red";
 		document.getElementById("erroresTutor").innerHTML += 'El campo DNI no puede estar vacío <br/>';
@@ -65,24 +65,29 @@ function validaTut() {
 		document.getElementById("erroresTutor").innerHTML += 'El campo teléfono no puede estar vacío <br/>';
 	} else
 		document.getElementById("label_telefonoTutor").style.color = "black";
-
+		
+	if (!compruebaTelefono()) {
+		document.getElementById("label_telefonoTutor").style.color = "red";
+		document.getElementById("erroresTutor").innerHTML += 'El campo teléfono no es correcto<br/>';
+	} else 
+		document.getElementById("label_telefonoTutor").style.color = "black";
+		
 	document.close();
 	return res;
 }
 
 function compruebaVacio(str) {
-	var res = false;
-	if (document.getElementById(str).value == "") {
-		res = true;
-	}
-
+	var res = true;
+	if (/([^\s])/.test(document.getElementById(str).value)) 
+		res = false;
+	
 	return res;
 }
 
 function compruebaDni1() {
 	var res = true;
 	var dni = document.getElementById("dniTutor").value;
-	if (dni.length < 8)
+	if (!/^.{8}$/.test(dni))
 		res = false;
 	else {
 		var letra = document.getElementById("letraTutor").value;
@@ -101,8 +106,7 @@ function compruebaDni1() {
 function compruebaDni2() {
 	var res = true;
 	var dni = document.getElementById("dniAlumnoTutor").value;
-	print(dni);
-	if (dni.length < 8)
+	if (!/^.{8}$/.test(dni))
 		res = false;
 	else {
 		var letra = document.getElementById("letraAlumnoTutor").value;
@@ -114,6 +118,15 @@ function compruebaDni2() {
 		if (letra != letraCorrecta)
 			res = false;
 	}
+
+	return res;
+}
+
+function compruebaTelefono() {
+	var res = true;
+	var tel = document.getElementById("telefonoTutor").value;
+	if (!/^.{9}$/.test(tel))
+		res = false;
 
 	return res;
 }

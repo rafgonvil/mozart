@@ -15,6 +15,6 @@
             unset($_SESSION['excepcion']);
 		?>
 		<p>Contacte con el administrador de la base de datos.</p>
-		<p><a href="formularioAlumnos.php">Aquí</a> para regresar al registro.</p>
+		<p><a href="indice.php">Aquí</a> para regresar al registro.</p>
 	</body>
 </html>

@@ -108,4 +108,17 @@ function modificarTutor($email, $telefono, $oid, $conexion)
             Header("Location:error.php");
         }
     }
+    
+function eliminarTutor($conexion, $oid)
+	{
+		try {
+			$stmt = $conexion -> prepare('CALL ELIMINA_TUTOR(:oid)');
+			$stmt -> bindParam(':oid', $oid);
+			$stmt -> execute();
+		} catch (PDOException $e) {
+			$_SESSION['excepcion'] = $e->getMessage();
+            Header("Location:error.php");
+		}
+	} 
+	
 ?>

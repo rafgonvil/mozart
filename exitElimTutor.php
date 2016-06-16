@@ -14,20 +14,20 @@
     
     $conexion = crearConexionBD();
 ?>
-
+	
 	<!DOCTYPE HTML>
 	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	    <title>Éxito</title>
-	    <link type="text/css" rel="stylesheet" href="css/cssBase.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Éxito</title>
+		<link type="text/css" rel="stylesheet" href="css/cssBase.css">
 	</head>
 	<body>
-	    <div>
-	        <?php
-	            modificarTutor($formularioMod['email'], $formularioMod['telefono'], $formularioMod['oid'], $conexion);
-	        ?>
-	        <h1>Modificación registrada con éxito</h1>
-	        <a href="tutores.php">Aquí</a> para volver al listado de tutores.
-	    </div>
-	</body>
+		<div>
+			<?php
+				eliminarTutor($conexion, $formularioMod['oid']);
+			?>
+			<h1>Entrada eliminada con éxito</h1>
+			<a href="informacionTutor.php">Aquí</a> para volver al registro.
+		</div>
+	</body>	
 <?php cerrarConexionBD($conexion); ?>

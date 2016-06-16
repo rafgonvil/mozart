@@ -118,4 +118,18 @@ function consultarAsignaturasAlumno($conexion, $oid) {
 		Header("Location:error.php");
 	}
 }
+
+function eliminarAlumno($conexion, $oid)
+	{
+		try {
+			$stmt = $conexion -> prepare('CALL ELIMINA_ALUMNO(:oid)');
+			$stmt -> bindParam(':oid', $oid);
+			$stmt -> execute();
+		} catch (PDOException $e) {
+			$_SESSION['excepcion'] = $e->getMessage();
+            Header("Location:error.php");
+		}
+	} 
+
+
 ?>

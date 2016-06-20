@@ -4,7 +4,10 @@ include_once ("gestionBD.php");
 include_once ("gestionEntradasAsignaturas.php");
 if (isset($_SESSION['formPunt'])) {
 	$formularioPunt = $_SESSION['formPunt'];
-	$formularioPunt['oid'] = $_SESSION['asignatura']['OID_A'];
+	$formularioPunt['oid_a'] = $_SESSION['asignatura']['OID_A'];
+	$formularioPunt['oid_p'] = $_SESSION['asignatura']['ALUMNO'];
+	$formularioPunt['oid_pr'] = $_SESSION['asignatura']['PROFESOR'];
+
 	unset($_SESSION['formPunt']);
 	unset($_SESSION['errores']);
 	unset($_SESSION['asignatura']);
@@ -24,7 +27,8 @@ $conexion = crearConexionBD();
 <body>
 	<div>
 		<?php
-		modificarAsignatura($formularioPunt['oid'], $formularioPunt['NOTA'], $conexion);
+		puntuarAsignatura($formularioPunt['oid_p'], $formularioPunt['oid_a'], $formularioPunt['NOTA'], $formularioPunt['oid_pr'], $conexion);
+		echo $formularioPunt['oid_p'] ." ". $formularioPunt['oid_a'] ." ". $formularioPunt['NOTA'] ." ". $formularioPunt['oid_pr'];
 		?>
 		<h1>Modificación registrada con éxito</h1>
 		<a href="asignaturas.php">Aquí</a> para volver al listado de alumnos.

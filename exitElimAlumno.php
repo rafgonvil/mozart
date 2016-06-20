@@ -22,9 +22,7 @@ $conexion = crearConexionBD();
 	<link type="text/css" rel="stylesheet" href="css/cssBase.css">
 </head>
 <body>
-	<?php
-	include_once ("CabeceraGenerica.php");
-	?>
+
 	<div>
 		<?php
 		eliminarAlumno($conexion, $formularioMod['oid']);
@@ -32,8 +30,6 @@ $conexion = crearConexionBD();
 		<h1>Entrada eliminada con éxito</h1>
 		<a href="alumnos.php">Aquí</a> para volver al registro.
 	</div>
-	<?php
-	include_once ("Pie.php");
-	?>
+
 </body>
 <?php cerrarConexionBD($conexion); ?>

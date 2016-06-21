@@ -12,6 +12,8 @@ $asignatura['ESPECIALIDAD'] = $_REQUEST['ESPECIALIDAD'];
 $asignatura['PROFESOR'] = $_REQUEST['PROFESOR'];
 $asignatura['NOTA'] = $_REQUEST['NOTA'];
 $asignatura['CURSO'] = $_REQUEST['CURSO'];
+$asignatura['OID_P'] = $_REQUEST['OID_P'];
+
 
 $_SESSION['asignatura'] = $asignatura;
 

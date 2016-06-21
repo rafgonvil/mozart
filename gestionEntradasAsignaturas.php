@@ -42,29 +42,21 @@ function consultarCursoAsignatura($conexion, $oid) {
 	}
 }
 
-function puntuarAsignatura($oid_p, $oid_a, $nota, $nombre, $conexion) {
+function puntuarAsignatura($oid_p, $oid_a, $nota, $oid_pr, $conexion) {
 	try {
-		
-		$consProf = "SELECT OID_P FROM PERSONA WHERE NOMBRE = :name";
-		$stm = $conexion -> prepare($consProf);
-		$stm -> bindParam(':name', $nombre);
-		$stm -> execute();
-		$oid_profesor = $stm -> fetch();
-		
-		
-		$consulta = "SELECT * FROM NOTA WHERE NOTA.OID_A = :oid_a";
+		$consulta = "SELECT COUNT(*) FROM NOTA WHERE NOTA.OID_A = :oid_a";
 		$stm1 = $conexion -> prepare($consulta);
 		$stm1 -> bindParam(':oid_a', $oid_a);
-		$stm1-> execute();
+		$stm1 -> execute();
 		$res = $stm1 -> fetch();
-			
-		if (true) {
+
+		if ($res[0] == '0') {
 			$consulta2 = "CALL INSERTAR_NOTA(:oid_p, :oid_a, :valor, 'PRIMERA_CONVOCATORIA', :oid_pr)";
 			$stmt = $conexion -> prepare($consulta2);
-			$stmt -> bindParam(':oid_p', (int)$oid_p);
+			$stmt -> bindParam(':oid_p', $oid_p);
 			$stmt -> bindParam(':oid_a', $oid_a);
 			$stmt -> bindParam(':valor', $nota);
-			$stmt -> bindParam(':oid_pr', (int) $oid_profesor);
+			$stmt -> bindParam(':oid_pr', $oid_pr);
 			$stmt -> execute();
 		} else {
 			$consulta2 = "CALL ACTUALIZAR_NOTA(:valor, :oid_a)";

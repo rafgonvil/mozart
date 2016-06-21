@@ -6,7 +6,7 @@ if (isset($_SESSION['formPunt'])) {
 	$formularioPunt = $_SESSION['formPunt'];
 	$formularioPunt['oid_a'] = $_SESSION['asignatura']['OID_A'];
 	$formularioPunt['oid_p'] = $_SESSION['asignatura']['ALUMNO'];
-	$formularioPunt['oid_pr'] = $_SESSION['asignatura']['PROFESOR'];
+	$formularioPunt['oid_pr'] = $_SESSION['asignatura']['OID_P'];
 
 	unset($_SESSION['formPunt']);
 	unset($_SESSION['errores']);
@@ -28,7 +28,6 @@ $conexion = crearConexionBD();
 	<div>
 		<?php
 		puntuarAsignatura($formularioPunt['oid_p'], $formularioPunt['oid_a'], $formularioPunt['NOTA'], $formularioPunt['oid_pr'], $conexion);
-		echo $formularioPunt['oid_p'] ." ". $formularioPunt['oid_a'] ." ". $formularioPunt['NOTA'] ." ". $formularioPunt['oid_pr'];
 		?>
 		<h1>Modificación registrada con éxito</h1>
 		<a href="asignaturas.php">Aquí</a> para volver al listado de alumnos.

@@ -51,6 +51,7 @@ $conexion = crearConexionBD();
                         <input id="OID_A" name="OID_A" type="hidden" value="<?php echo $asignatura['OID_A']; ?>" />
                         <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $asignatura['NOMBRE']; ?>" />
                         <input id="PROFESOR" name="PROFESOR" type="hidden" value="<?php echo $prof; ?>" />
+                        <input id="OID_P" name="OID_P" type="hidden" value="<?php echo $asignatura['PROFESOR']; ?>" /> 
                         <input id="CURSO" name="CURSO" type="hidden" value="<?php echo $curso; ?>" />
                         <input id="ESPECIALIDAD" name="ESPECIALIDAD" type="hidden" value="<?php echo $esp; ?>" />
                         <input id="NOTA" name="NOTA" type="hidden" value="<?php echo $nota; ?>" />

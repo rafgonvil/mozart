@@ -2,8 +2,7 @@ function validaTut() {
 	var res = true;
 	document.getElementById("erroresTutor").innerHTML = "";
 
-	if (compruebaVacio("nombreTutor") || compruebaVacio("apellidosTutor") || compruebaVacio("dniTutor") || compruebaVacio("letraTutor") || compruebaVacio("emailTutor") || compruebaVacio("fnacTutor") 
-	|| compruebaVacio("telefonoTutor") || !compruebaDni1() || !compruebaDni2())
+	if (compruebaVacio("nombreTutor") || compruebaVacio("apellidosTutor") || compruebaVacio("dniTutor") || compruebaVacio("letraTutor") || compruebaVacio("emailTutor") || compruebaVacio("fnacTutor") || compruebaVacio("telefonoTutor") || !compruebaDni1() || !compruebaDni2())
 		res = false;
 
 	if (compruebaVacio("nombreTutor")) {
@@ -23,7 +22,7 @@ function validaTut() {
 		document.getElementById("erroresTutor").innerHTML += 'El campo DNI no puede estar vacío <br/>';
 	} else
 		document.getElementById("label_dniTutor").style.color = "black";
-	
+
 	if (compruebaVacio("letraTutor")) {
 		document.getElementById("label_letraTutor").style.color = "red";
 		document.getElementById("erroresTutor").innerHTML += 'El campo DNI no puede estar vacío <br/>';
@@ -38,7 +37,7 @@ function validaTut() {
 		document.getElementById("label_letraTutor").style.color = "black";
 		document.getElementById("label_dniTutor").style.color = "black";
 	}
-	
+
 	if (!compruebaDni2()) {
 		document.getElementById("label_dniAlumno").style.color = "red";
 		document.getElementById("label_letraAlumno").style.color = "red";
@@ -65,22 +64,40 @@ function validaTut() {
 		document.getElementById("erroresTutor").innerHTML += 'El campo teléfono no puede estar vacío <br/>';
 	} else
 		document.getElementById("label_telefonoTutor").style.color = "black";
-		
+
+	if (compruebaNumero("telefonoTutor")) {
+		document.getElementById("label_telefonoTutor").style.color = "red";
+		document.getElementById("erroresTutor").innerHTML += 'El campo teléfono sólo puede contener números <br/>';
+	} else
+		document.getElementById("label_telefonoTutor").style.color = "black";
+
+	if (compruebaNumero("dniAlumnoTutor")) {
+		document.getElementById("label_dniAlumno").style.color = "red";
+		document.getElementById("erroresTutor").innerHTML += 'El DNI del Alumno sólo puede contener números <br/>';
+	} else
+		document.getElementById("label_dniAlumno").style.color = "black";
+
+	if (compruebaNumero("dniTutor")) {
+		document.getElementById("label_dniTutor").style.color = "red";
+		document.getElementById("erroresTutor").innerHTML += 'El DNI del Tutor sólo puede contener números <br/>';
+	} else
+		document.getElementById("label_dniTutor").style.color = "black";
+
 	if (!compruebaTelefono()) {
 		document.getElementById("label_telefonoTutor").style.color = "red";
 		document.getElementById("erroresTutor").innerHTML += 'El campo teléfono no es correcto<br/>';
-	} else 
+	} else
 		document.getElementById("label_telefonoTutor").style.color = "black";
-		
+
 	document.close();
 	return res;
 }
 
 function compruebaVacio(str) {
 	var res = true;
-	if (/([^\s])/.test(document.getElementById(str).value)) 
+	if (/([^\s])/.test(document.getElementById(str).value))
 		res = false;
-	
+
 	return res;
 }
 
@@ -131,3 +148,10 @@ function compruebaTelefono() {
 	return res;
 }
 
+function compruebaNumero(str) {
+	var res = true;
+	if (/^\d+$/.test(document.getElementById(str).value))
+		res = false;
+
+	return res;
+}

@@ -1,11 +1,6 @@
 <?php
 session_start();
-/*
- * De momento no se realiza una conexión a la BD
- * pero puede ser necesaria en un futuro por lo
- * que se han comentado algunas líneas de código
- */
-//include_once("gestionbd.php");
+
 if (!isset($_SESSION['formularioAlumno'])) {
 	$formulario['nombreAlumno'] = "";
 	$formulario['apellidosAlumno'] = "";
@@ -25,7 +20,6 @@ if (isset($_SESSION['erroresAlumno'])) {
 	$errores = $_SESSION['erroresAlumno'];
 }
 
-//$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE HTML>
@@ -115,7 +109,3 @@ if (isset($_SESSION['erroresAlumno'])) {
  ?>
     </body>
 </html>
-
-<?php
-//cerrarConexionBD($conexion);
-?>

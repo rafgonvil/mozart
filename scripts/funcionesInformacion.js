@@ -15,14 +15,14 @@ function mostrarAdvertenciaTutor()
 {
 	var r = confirm("¿Está seguro de que desea eliminar a este tutor?");
 	if (r == true)
-		window.location = "http://localhost/IISSI/mozart/exitElimTutor.php";
+		window.location = "\exitElimTutor.php";
 }
 
 function mostrarAdvertenciaAlumno()
 {
 	var r = confirm("¿Está seguro de que desea eliminar a este alumno?");
 	if (r == true)
-		window.location = "http://localhost/IISSI/mozart/exitElimAlumno.php";
+		window.location = "\exitElimAlumno.php";
 }
 
 function validaMod()

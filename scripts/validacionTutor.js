@@ -17,17 +17,17 @@ function validaTut() {
 	} else
 		document.getElementById("label_apellidosTutor").style.color = "black";
 
+	if (compruebaVacio("letraTutor")) {
+		document.getElementById("label_letraTutor").style.color = "red";
+		document.getElementById("erroresTutor").innerHTML += 'La letra DNI no puede estar vacío <br/>';
+	} else
+		document.getElementById("label_letraTutor").style.color = "black";
+		
 	if (compruebaVacio("dniTutor")) {
 		document.getElementById("label_dniTutor").style.color = "red";
 		document.getElementById("erroresTutor").innerHTML += 'El campo DNI no puede estar vacío <br/>';
 	} else
 		document.getElementById("label_dniTutor").style.color = "black";
-
-	if (compruebaVacio("letraTutor")) {
-		document.getElementById("label_letraTutor").style.color = "red";
-		document.getElementById("erroresTutor").innerHTML += 'El campo DNI no puede estar vacío <br/>';
-	} else
-		document.getElementById("label_letraTutor").style.color = "black";
 
 	if (!compruebaDni1()) {
 		document.getElementById("label_dniTutor").style.color = "red";
@@ -37,6 +37,12 @@ function validaTut() {
 		document.getElementById("label_letraTutor").style.color = "black";
 		document.getElementById("label_dniTutor").style.color = "black";
 	}
+	
+	if (compruebaLetra("letraTutor")) {
+		document.getElementById("label_letraTutor").style.color = "red";
+		document.getElementById("erroresTutor").innerHTML += 'La letra del DNI del Alumno debe ser una letra mayúscula <br/>';
+	} else
+		document.getElementById("label_letraTutor").style.color = "black";
 
 	if (!compruebaDni2()) {
 		document.getElementById("label_dniAlumno").style.color = "red";
@@ -82,6 +88,12 @@ function validaTut() {
 		document.getElementById("erroresTutor").innerHTML += 'El DNI del Tutor sólo puede contener números <br/>';
 	} else
 		document.getElementById("label_dniTutor").style.color = "black";
+
+	if (compruebaLetra("letraAlumnoTutor")) {
+		document.getElementById("label_letraAlumno").style.color = "red";
+		document.getElementById("erroresTutor").innerHTML += 'La letra del DNI del Alumno debe ser una letra mayúscula <br/>';
+	} else
+		document.getElementById("label_letraAlumno").style.color = "black";
 
 	if (!compruebaTelefono()) {
 		document.getElementById("label_telefonoTutor").style.color = "red";
@@ -155,3 +167,12 @@ function compruebaNumero(str) {
 
 	return res;
 }
+
+function compruebaLetra(str) {
+	var res = true;
+	if (/^[A-Z]*$/.test(document.getElementById(str).value))
+		res = false;
+
+	return res;
+}
+

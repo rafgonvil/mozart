@@ -29,6 +29,9 @@ body {
 	border-radius: 9px;
 }
 
+#paginacion {
+	float: left;
+}
 .cabecera1 {
 	display: block;
 }

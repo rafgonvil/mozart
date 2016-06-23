@@ -1,28 +1,26 @@
 <?php
-    session_start();
-    require_once("gestionBD.php");
-    require_once("gestionEntradasAlumnos.php");
-    
-    $conexion = crearConexionBD();
-    
-    $numero_pagina = isset($_GET['numero_pagina']) ?
-                     (int)$_GET['numero_pagina'] : 1;
-    $tam_pagina = isset($_GET['tam_pagina']) ?
-                  (int)$_GET['tam_pagina'] : 10;
-                  
-    if ($numero_pagina < 1)
-        $numero_pagina = 1;
-    if ($tam_pagina < 1)
-        $tam_pagina = 10;
-    
-    $total = consultarTotalAlumnos($conexion);
-    $paginas_totales = (int)($total / $tam_pagina);
-    
-    if ($total % $tam_pagina > 0)
-        $paginas_totales++;
-    
-    if ($numero_pagina > $paginas_totales)
-        $numero_pagina = 1;
+session_start();
+require_once ("gestionBD.php");
+require_once ("gestionEntradasAlumnos.php");
+
+$conexion = crearConexionBD();
+
+$numero_pagina = isset($_GET['numero_pagina']) ? (int)$_GET['numero_pagina'] : 1;
+$tam_pagina = isset($_GET['tam_pagina']) ? (int)$_GET['tam_pagina'] : 10;
+
+if ($numero_pagina < 1)
+	$numero_pagina = 1;
+if ($tam_pagina < 1)
+	$tam_pagina = 10;
+
+$total = consultarTotalAlumnos($conexion);
+$paginas_totales = (int)($total / $tam_pagina);
+
+if ($total % $tam_pagina > 0)
+	$paginas_totales++;
+
+if ($numero_pagina > $paginas_totales)
+	$numero_pagina = 1;
 ?>
 
 <!DOCTYPE HTML>
@@ -34,7 +32,9 @@
     </head>
     
     <body>
-    	<?php include_once ("CabeceraGenerica.php");?>
+    	<?php
+		include_once ("CabeceraGenerica.php");
+	?>
         <div id="contenidos">
             <div id="alumnos">
                 <div id="paginacion">
@@ -43,14 +43,14 @@
                             for($pag = 1; $pag <= $paginas_totales; $pag++) {
                                 if ($pag == $numero_pagina) { 
                         ?>
-                        <span class="actual"><?php echo $pag;  ?></span>
+                        <span class="actual"><?php echo $pag; ?></span>
                         <?php
-                                } else {
+						} else {
                         ?>
                         <a href="alumnos.php?numero_pagina=<?php echo $pag; ?>&tam_pagina=<?php echo $tam_pagina; ?>"><?php echo $pag; ?></a>
                         <?php
-                                }
-                            }
+						}
+						}
                         ?>
                         <form method="get" action="alumnos.php">
                         <input id="numero_pagina" name="numero_pagina" type="hidden" value="<?php echo $numero_pagina; ?>" />
@@ -88,29 +88,29 @@
                         <input id="CURSO" name="CURSO" type="hidden" value="<?php echo $fila['CURSO']; ?>" />
                         <input id="ESPECIALIDAD" name="ESPECIALIDAD" type="hidden" value="<?php echo $esp; ?>" />
                         <tr class="alumno">
-                            <td><?php echo $fila['NOMBRE'];  ?></td>
-                            <td><?php echo $fila['DNI'];  ?></td>
-                            <td><?php echo $fila['EMAIL'];  ?></td>
-                            <td><?php echo $fila['FECHA_NACIMIENTO'];  ?></td>
-                            <td><?php echo $fila['TELEFONO'];  ?></td>
-                            <td><?php echo $fila['CURSO'];  ?></td>
-                            <td><?php echo $esp;  ?></td>
+                            <td><?php echo $fila['NOMBRE']; ?></td>
+                            <td><?php echo $fila['DNI']; ?></td>
+                            <td><?php echo $fila['EMAIL']; ?></td>
+                            <td><?php echo $fila['FECHA_NACIMIENTO']; ?></td>
+                            <td><?php echo $fila['TELEFONO']; ?></td>
+                            <td><?php echo $fila['CURSO']; ?></td>
+                            <td><?php echo $esp; ?></td>
                             <td><button id="info" name="info" type="submit">Administrar</button></td>
                             <td><button id="asig" name="asig" type="submit">Asignaturas</button></td>
                         </tr>
                     </form>
 
                     <?php
-                        }
+					}
                     ?>
                     </table>
                 </div>
             </div>
         </div>
         
-        <?php 
-            include_once("pie.php");
-            cerrarConexionBD($conexion);
+        <?php
+			include_once ("pie.php");
+			cerrarConexionBD($conexion);
         ?>
     </body>
 </html>
